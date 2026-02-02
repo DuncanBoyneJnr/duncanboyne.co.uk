@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Github, Linkedin, Twitter, Youtube, ArrowRight } from 'lucide-svelte';
+	import { Github, Linkedin, Twitter, Youtube, ArrowRight, Mic } from 'lucide-svelte';
 
 	const socialLinks = [
 		{ href: 'https://github.com/duncanboyne', icon: Github, label: 'GitHub' },
@@ -14,14 +14,9 @@
 		<div class="flex flex-col md:flex-row items-center gap-12">
 			<!-- Profile Image -->
 			<div class="flex-shrink-0">
-				<div class="relative">
-					<div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-accent to-accent2 p-1">
-						<div class="w-full h-full rounded-full bg-surface flex items-center justify-center overflow-hidden">
-							<img src="/profile.jpg" alt="Duncan Boyne" class="w-full h-full object-cover" />
-						</div>
-					</div>
-					<div class="absolute -bottom-2 -right-2 w-12 h-12 bg-accent rounded-full border-4 border-bg flex items-center justify-center">
-						<span class="text-[#1F1F1F] text-xs font-bold">PBI</span>
+				<div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-accent to-accent2 p-1">
+					<div class="w-full h-full rounded-full bg-surface flex items-center justify-center overflow-hidden">
+						<img src="/profile.jpg" alt="Duncan Boyne" class="w-full h-full object-cover" />
 					</div>
 				</div>
 			</div>
@@ -31,12 +26,15 @@
 				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text mb-4">
 					Duncan Boyne
 				</h1>
-				<p class="text-xl md:text-2xl text-accent font-medium mb-6">
+				<p class="text-xl md:text-2xl text-accent font-medium mb-2">
 					Power BI Consultant
 				</p>
+				<p class="text-base text-muted mb-6">
+					International Speaker · Founder, Norfolk Power Platform UG & East of England Power Platform Summit
+				</p>
 				<p class="text-lg text-muted mb-8 max-w-2xl">
-					Helping organizations transform their data into actionable insights through
-					Power BI dashboards, data modeling, and business intelligence solutions.
+					Helping businesses turn messy, scattered data into something meaningful.
+					Clean data models, impactful visuals, and reporting that actually makes sense.
 				</p>
 
 				<!-- CTA Buttons -->
@@ -45,8 +43,9 @@
 						Get in Touch
 						<ArrowRight class="w-4 h-4 ml-2" />
 					</a>
-					<a href="/about" class="btn-secondary">
-						Learn More
+					<a href="https://sessionize.com/duncan-boyne" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+						<Mic class="w-4 h-4 mr-2" />
+						Book Me to Speak
 					</a>
 				</div>
 

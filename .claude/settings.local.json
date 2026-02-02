@@ -10,7 +10,8 @@
       "WebFetch(domain:sessionize.com)",
       "Bash(ls:*)",
       "Bash(taskkill /F /IM node.exe)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "WebFetch(domain:www.charlessexton.com)"
     ]
   }
 }

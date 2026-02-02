@@ -8,7 +8,7 @@
 		{ href: 'https://linkedin.com/in/duncanboyne', icon: Linkedin, label: 'LinkedIn' },
 		{ href: 'https://twitter.com/duncanboyne', icon: Twitter, label: 'Twitter' },
 		{ href: 'https://youtube.com/@duncanboyne', icon: Youtube, label: 'YouTube' },
-		{ href: 'mailto:hello@duncanboyne.com', icon: Mail, label: 'Email' }
+		{ href: 'mailto:duncanboyne@hotmail.co.uk', icon: Mail, label: 'Email' }
 	];
 </script>
 

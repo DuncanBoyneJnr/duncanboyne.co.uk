@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Mail, MapPin, Github, Linkedin, Twitter, Youtube, Send } from 'lucide-svelte';
+	import { Mail, MapPin, Github, Linkedin, Twitter, Youtube, Send, Mic, ExternalLink } from 'lucide-svelte';
 
 	let formData = {
 		name: '',
@@ -55,7 +55,7 @@
 		<div class="text-center mb-12">
 			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">Get in Touch</h1>
 			<p class="text-lg text-muted max-w-2xl mx-auto">
-				Have a project in mind? Want to discuss Power BI solutions? I'd love to hear from you.
+				Have a question? Want to discuss Power BI solutions? I'd love to hear from you.
 			</p>
 		</div>
 
@@ -127,7 +127,7 @@
 									required
 									rows="5"
 									class="w-full px-4 py-3 rounded-lg border border-border bg-surface text-text focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none"
-									placeholder="Tell me about your project..."
+									placeholder="Tell me what's on your mind..."
 								></textarea>
 							</div>
 
@@ -157,29 +157,50 @@
 
 					<div class="space-y-6">
 						<!-- Email -->
-						<div class="card p-6">
+						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 							<div class="flex items-start space-x-4">
 								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
 									<Mail class="w-5 h-5 text-accent" />
 								</div>
 								<div>
 									<h3 class="font-medium text-text mb-1">Email</h3>
-									<a href="mailto:hello@duncanboyne.com" class="text-accent hover:underline">
-										hello@duncanboyne.com
+									<a href="mailto:duncanboyne@hotmail.co.uk" class="text-accent hover:underline">
+										duncanboyne@hotmail.co.uk
 									</a>
 								</div>
 							</div>
 						</div>
 
 						<!-- Location -->
-						<div class="card p-6">
+						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 							<div class="flex items-start space-x-4">
 								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
 									<MapPin class="w-5 h-5 text-accent" />
 								</div>
 								<div>
 									<h3 class="font-medium text-text mb-1">Location</h3>
-									<p class="text-muted">Norwich, UK - Available for remote consulting worldwide</p>
+									<p class="text-muted">Norwich, England, United Kingdom</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Sessionize -->
+						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
+							<div class="flex items-start space-x-4">
+								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+									<Mic class="w-5 h-5 text-accent" />
+								</div>
+								<div>
+									<h3 class="font-medium text-text mb-1">Speaking Enquiries</h3>
+									<a
+										href="https://sessionize.com/duncan-boyne"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center text-accent hover:underline"
+									>
+										View my Sessionize profile
+										<ExternalLink class="w-4 h-4 ml-1" />
+									</a>
 								</div>
 							</div>
 						</div>

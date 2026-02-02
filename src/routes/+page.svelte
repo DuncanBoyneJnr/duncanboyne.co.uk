@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ArrowRight } from 'lucide-svelte';
+	import { ArrowRight, FileText, Calendar, Video } from 'lucide-svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import EventCard from '$lib/components/EventCard.svelte';
 	import VideoCard from '$lib/components/VideoCard.svelte';
 	import { getPosts, getEvents, getVideos } from '$lib/supabase';
-	import type { Post, Event, Video } from '$lib/types';
+	import type { Post, Event, Video as VideoType } from '$lib/types';
 
 	let posts: Post[] = [];
 	let events: Event[] = [];
-	let videos: Video[] = [];
+	let videos: VideoType[] = [];
 	let loading = true;
 	let error: string | null = null;
 
@@ -44,10 +44,15 @@
 <section class="py-16 bg-surface">
 	<div class="container-custom">
 		<div class="flex items-center justify-between mb-8">
-			<h2 class="section-title mb-0">Latest Posts</h2>
-			<a href="/blog" class="inline-flex items-center text-accent font-medium hover:underline">
-				View all
-				<ArrowRight class="w-4 h-4 ml-1" />
+			<div class="flex items-center gap-3">
+				<div class="p-2 bg-accent/10 rounded-lg">
+					<FileText class="w-5 h-5 text-accent" />
+				</div>
+				<h2 class="text-2xl font-bold text-text">Latest Posts</h2>
+			</div>
+			<a href="/blog" class="inline-flex items-center text-accent font-medium hover:underline group">
+				Explore Blog
+				<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
 			</a>
 		</div>
 
@@ -56,9 +61,9 @@
 				{#each [1, 2, 3] as _}
 					<div class="card animate-pulse">
 						<div class="aspect-video bg-border" />
-						<div class="p-6 space-y-3">
+						<div class="p-5 space-y-3">
 							<div class="h-4 bg-border rounded w-1/3" />
-							<div class="h-6 bg-border rounded" />
+							<div class="h-5 bg-border rounded" />
 							<div class="h-4 bg-border rounded w-2/3" />
 						</div>
 					</div>
@@ -67,7 +72,10 @@
 		{:else if error}
 			<p class="text-center text-muted py-8">{error}</p>
 		{:else if posts.length === 0}
-			<p class="text-center text-muted py-8">No posts yet. Check back soon!</p>
+			<div class="text-center py-12 bg-bg rounded-xl border border-border">
+				<FileText class="w-12 h-12 text-muted/50 mx-auto mb-4" />
+				<p class="text-muted">No posts yet. Check back soon!</p>
+			</div>
 		{:else}
 			<div class="grid md:grid-cols-3 gap-6">
 				{#each posts as post}
@@ -82,26 +90,35 @@
 <section class="py-16 bg-bg">
 	<div class="container-custom">
 		<div class="flex items-center justify-between mb-8">
-			<h2 class="section-title mb-0">Upcoming Events</h2>
-			<a href="/events" class="inline-flex items-center text-accent font-medium hover:underline">
-				View all
-				<ArrowRight class="w-4 h-4 ml-1" />
+			<div class="flex items-center gap-3">
+				<div class="p-2 bg-accent/10 rounded-lg">
+					<Calendar class="w-5 h-5 text-accent" />
+				</div>
+				<h2 class="text-2xl font-bold text-text">Upcoming Events</h2>
+			</div>
+			<a href="/events" class="inline-flex items-center text-accent font-medium hover:underline group">
+				View All Events
+				<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
 			</a>
 		</div>
 
 		{#if loading}
 			<div class="grid md:grid-cols-2 gap-6">
 				{#each [1, 2] as _}
-					<div class="card animate-pulse p-6 space-y-3">
+					<div class="card animate-pulse p-5 space-y-3">
 						<div class="h-6 bg-border rounded w-1/4" />
-						<div class="h-8 bg-border rounded w-3/4" />
+						<div class="h-5 bg-border rounded w-3/4" />
 						<div class="h-4 bg-border rounded" />
 						<div class="h-4 bg-border rounded w-1/2" />
 					</div>
 				{/each}
 			</div>
 		{:else if events.length === 0}
-			<p class="text-center text-muted py-8">No upcoming events at the moment. Check back soon!</p>
+			<div class="text-center py-12 bg-surface rounded-xl border border-border">
+				<Calendar class="w-12 h-12 text-muted/50 mx-auto mb-4" />
+				<p class="text-muted">No upcoming events at the moment.</p>
+				<p class="text-muted/70 text-sm mt-1">Check back soon!</p>
+			</div>
 		{:else}
 			<div class="grid md:grid-cols-2 gap-6">
 				{#each events as event}
@@ -116,10 +133,15 @@
 <section class="py-16 bg-surface">
 	<div class="container-custom">
 		<div class="flex items-center justify-between mb-8">
-			<h2 class="section-title mb-0">Recent Videos</h2>
-			<a href="/videos" class="inline-flex items-center text-accent font-medium hover:underline">
-				View all
-				<ArrowRight class="w-4 h-4 ml-1" />
+			<div class="flex items-center gap-3">
+				<div class="p-2 bg-accent/10 rounded-lg">
+					<Video class="w-5 h-5 text-accent" />
+				</div>
+				<h2 class="text-2xl font-bold text-text">Recent Videos</h2>
+			</div>
+			<a href="/videos" class="inline-flex items-center text-accent font-medium hover:underline group">
+				View All Videos
+				<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
 			</a>
 		</div>
 
@@ -128,15 +150,18 @@
 				{#each [1, 2, 3] as _}
 					<div class="card animate-pulse">
 						<div class="aspect-video bg-border" />
-						<div class="p-6 space-y-3">
+						<div class="p-5 space-y-3">
 							<div class="h-4 bg-border rounded w-1/3" />
-							<div class="h-6 bg-border rounded" />
+							<div class="h-5 bg-border rounded" />
 						</div>
 					</div>
 				{/each}
 			</div>
 		{:else if videos.length === 0}
-			<p class="text-center text-muted py-8">No videos yet. Check back soon!</p>
+			<div class="text-center py-12 bg-bg rounded-xl border border-border">
+				<Video class="w-12 h-12 text-muted/50 mx-auto mb-4" />
+				<p class="text-muted">No videos yet. Check back soon!</p>
+			</div>
 		{:else}
 			<div class="grid md:grid-cols-3 gap-6">
 				{#each videos as video}
