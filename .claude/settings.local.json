@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(dir:*)",
+      "Bash(timeout 5 npm run preview:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:sessionize.com)",
+      "Bash(ls:*)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(taskkill:*)"
+    ]
+  }
+}

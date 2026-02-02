@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		/* Light mode - Power BI inspired */
+		--color-bg: #FAFAF8;
+		--color-surface: #FFFFFF;
+		--color-text: #1F1F1F;
+		--color-muted: #5A5A5A;
+		--color-border: #E6E6E6;
+		--color-accent: #F2C811;
+		--color-accent2: #D6AE00;
+		--color-success: #107C10;
+		--color-info: #0078D4;
+		--color-warning: #FFB900;
+		--color-error: #D13438;
+	}
+
+	.dark {
+		--color-bg: #121212;
+		--color-surface: #1E1E1E;
+		--color-text: #F5F5F5;
+		--color-muted: #B3B3B3;
+		--color-border: #2C2C2C;
+		--color-accent: #F2C811;
+		--color-accent2: #C9A300;
+		--color-success: #6CCB5F;
+		--color-info: #4F9DDE;
+		--color-warning: #FFD966;
+		--color-error: #F1707B;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply antialiased bg-bg text-text;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-semibold tracking-tight;
+	}
+
+	a {
+		@apply transition-colors duration-200;
+	}
+}
+
+@layer components {
+	.container-custom {
+		@apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+	}
+
+	.btn-primary {
+		@apply inline-flex items-center justify-center px-6 py-3 bg-accent font-medium rounded-lg hover:bg-accent2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg transition-colors;
+		color: #1F1F1F;
+	}
+
+	.btn-secondary {
+		@apply inline-flex items-center justify-center px-6 py-3 border border-border text-muted font-medium rounded-lg hover:bg-surface focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg transition-colors;
+	}
+
+	.card {
+		@apply bg-surface rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow;
+	}
+
+	.section-title {
+		@apply text-3xl font-bold text-text mb-8;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-border);
+	border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-muted);
+}
