@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Mail, MapPin, Github, Linkedin, Twitter, Youtube, Send, Mic, ExternalLink } from 'lucide-svelte';
+	import { Mail, MapPin, Github, Linkedin, Youtube, Send, Mic, ExternalLink } from 'lucide-svelte';
 
 	let formData = {
 		name: '',
@@ -40,7 +40,6 @@
 	const socialLinks = [
 		{ href: 'https://github.com/DuncanBoyneJnr', icon: Github, label: 'GitHub', username: '@DuncanBoyneJnr' },
 		{ href: 'https://linkedin.com/in/duncanboyne', icon: Linkedin, label: 'LinkedIn', username: 'in/duncanboyne' },
-		{ href: 'https://twitter.com/duncanboyne', icon: Twitter, label: 'Twitter', username: '@duncanboyne' },
 		{ href: 'https://youtube.com/@PowerBIKindaGuy', icon: Youtube, label: 'YouTube', username: '@PowerBIKindaGuy' },
 		{ href: 'https://youtube.com/@PowerPlatformClinic', icon: Youtube, label: 'YouTube', username: '@PowerPlatformClinic' }
 	];
