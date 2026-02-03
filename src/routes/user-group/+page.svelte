@@ -64,8 +64,8 @@
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
 							<Users class="w-6 h-6 text-accent" />
 						</div>
-						<h3 class="font-semibold text-text mb-1">In Person</h3>
-						<p class="text-sm text-muted">Face-to-face networking & sessions</p>
+						<h3 class="font-semibold text-text mb-1">Mostly In Person</h3>
+						<p class="text-sm text-muted">With 2 online-only events per year</p>
 					</div>
 				</div>
 			</div>
