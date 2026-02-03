@@ -2,10 +2,10 @@
 	import { Github, Linkedin, Twitter, Youtube, ArrowRight, Mic } from 'lucide-svelte';
 
 	const socialLinks = [
-		{ href: 'https://github.com/duncanboyne', icon: Github, label: 'GitHub' },
+		{ href: 'https://github.com/DuncanBoyneJnr', icon: Github, label: 'GitHub' },
 		{ href: 'https://linkedin.com/in/duncanboyne', icon: Linkedin, label: 'LinkedIn' },
 		{ href: 'https://twitter.com/duncanboyne', icon: Twitter, label: 'Twitter' },
-		{ href: 'https://youtube.com/@duncanboyne', icon: Youtube, label: 'YouTube' }
+		{ href: 'https://youtube.com/@PowerBIKindaGuy', icon: Youtube, label: 'YouTube' }
 	];
 </script>
 

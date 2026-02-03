@@ -38,10 +38,11 @@
 	}
 
 	const socialLinks = [
-		{ href: 'https://github.com/duncanboyne', icon: Github, label: 'GitHub', username: '@duncanboyne' },
+		{ href: 'https://github.com/DuncanBoyneJnr', icon: Github, label: 'GitHub', username: '@DuncanBoyneJnr' },
 		{ href: 'https://linkedin.com/in/duncanboyne', icon: Linkedin, label: 'LinkedIn', username: 'in/duncanboyne' },
 		{ href: 'https://twitter.com/duncanboyne', icon: Twitter, label: 'Twitter', username: '@duncanboyne' },
-		{ href: 'https://youtube.com/@duncanboyne', icon: Youtube, label: 'YouTube', username: '@duncanboyne' }
+		{ href: 'https://youtube.com/@PowerBIKindaGuy', icon: Youtube, label: 'YouTube', username: '@PowerBIKindaGuy' },
+		{ href: 'https://youtube.com/@PowerPlatformClinic', icon: Youtube, label: 'YouTube', username: '@PowerPlatformClinic' }
 	];
 </script>
 
