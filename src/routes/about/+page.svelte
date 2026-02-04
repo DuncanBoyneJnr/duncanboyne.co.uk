@@ -48,8 +48,9 @@
 		<!-- Header -->
 		<div class="max-w-4xl mx-auto text-center mb-16">
 			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">About Me</h1>
-			<p class="text-lg text-muted">
-				The Power BI Kinda Guy
+			<p class="text-lg text-muted italic">
+				Most dashboards don't fail because the data is wrong.<br />
+				They fail because nobody wants to open them.
 			</p>
 		</div>
 
@@ -67,30 +68,35 @@
 
 				<!-- Bio Content -->
 				<div class="flex-1">
-					<h2 class="text-2xl font-bold text-text mb-4">Hi, I'm Duncan</h2>
+					<h2 class="text-2xl font-bold text-text mb-4">I'm Duncan, and I spend my time trying to fix that.</h2>
 					<div class="space-y-4 text-muted">
 						<p>
-							I'm a Power BI Consultant at CPiO, helping businesses turn messy, scattered data into
-							something meaningful (and dare I say it, actually enjoyable to look at).
+							Professionally, I work with Power BI and the Microsoft Power Platform, helping teams turn messy data, unclear requirements, and "technically correct" dashboards into things people actually use. I sit in that middle space between business and tech, translating intent into something usable, human, and honest.
+						</p>
+						<p class="font-semibold text-text">But that's not the whole story.</p>
+						<p>
+							I'm a 90s kid who still adores Pokemon, raised on a Game Boy and the original PlayStation, and I've never really stopped being a gamer. Games were probably my first lesson in systems, feedback loops, and why good design matters, even if I didn't have the language for it at the time.
 						</p>
 						<p>
-							My focus? Bringing clarity through clean data models, impactful visuals, and
-							well-thought-out reporting. Whether it's integrating Power BI with ERP systems like
-							Sage 200 or building tailored dashboards that answer the real business questions,
-							I make data work for people, not the other way around.
+							I'm a dad to two brilliant young humans (boys really, 11 and 8), who constantly remind me that curiosity beats confidence and that "why?" is usually the most important question in the room. Our household is completed by Bella, a wonderfully scatty three year old Border Collie who has absolutely no respect for meetings, deadlines, or personal space.
 						</p>
 						<p>
-							Before joining CPiO, I led application and data initiatives at Spectrum Control,
-							unifying ERP systems, building Power Platform solutions, and making sure technology
-							genuinely improved day-to-day operations.
+							When I'm not working or parenting, you'll usually find me reading fantasy, tinkering with side projects, or disappearing down a rabbit hole because something caught my interest and refused to let go. I read to escape, to learn, and occasionally to justify buying more books when the shelf is already full.
 						</p>
 						<p>
-							I'm passionate about the Microsoft ecosystem: Power BI, Power Automate, Power Apps,
-							Dataverse and the possibilities that come when they all click together.
+							I'm AuDHD and proud. It shapes how I think, how I work, and how I show up. It's the reason I can hyperfocus on a problem until it clicks, why I care deeply about accessibility and inclusion, and why I believe clarity is kindness, especially in data and design.
 						</p>
 						<p>
-							If you're into transforming complex processes into elegant, automated systems or
-							just love talking data storytelling, we'll probably get along.
+							Community is a huge part of my life. I founded the Norfolk Power Platform User Group and I founded the East of England Power Platform Summit. EoEPPS is very much my baby, built from the ground up to create a space that is welcoming, practical, and human. Community changed my career, so now I invest a lot of time and energy into building the kind of spaces I wish I'd had earlier.
+						</p>
+						<p>
+							I write, speak, and build in public. Sometimes that's deep Power BI content, sometimes it's design, accessibility, or ethics, and sometimes it's just being honest about what didn't work and why. I'm far more interested in clarity and usefulness than polish or perfection.
+						</p>
+						<p>
+							If you're here for Power BI, human-centred design, community, gaming analogies, fantasy references, or slightly chaotic but well-intentioned tech content, you're in the right place.
+						</p>
+						<p class="font-semibold text-text">
+							And if nothing else, at least now you know there's a real human behind the dashboards.
 						</p>
 					</div>
 				</div>

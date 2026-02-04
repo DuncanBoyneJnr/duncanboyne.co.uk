@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Calendar, MapPin, Users, Clock, Sparkles, ExternalLink, Linkedin } from 'lucide-svelte';
+	import { Calendar, MapPin, Users, Clock, Sparkles, ExternalLink, Linkedin, Pizza, Mic } from 'lucide-svelte';
 
 	const benefits = [
 		{
@@ -16,7 +16,24 @@
 			icon: Sparkles,
 			title: 'Grow',
 			description: 'Develop your skills and advance your career'
+		},
+		{
+			icon: Pizza,
+			title: 'Free Pizza',
+			description: 'Because good community deserves good food'
 		}
+	];
+
+	const topics = [
+		'Power Apps',
+		'Power Automate',
+		'Power BI',
+		'Power Pages',
+		'Copilot Studio',
+		'Dynamics 365',
+		'Dataverse',
+		'AI & Azure',
+		'Career Development'
 	];
 </script>
 
@@ -50,22 +67,22 @@
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
 							<Clock class="w-6 h-6 text-accent" />
 						</div>
-						<h3 class="font-semibold text-text mb-1">First Thursday</h3>
-						<p class="text-sm text-muted">Of most months (we skip January & August)</p>
+						<h3 class="font-semibold text-text mb-1">Thursday Evenings</h3>
+						<p class="text-sm text-muted">6:15 PM - 8:45 PM</p>
 					</div>
 					<div class="text-center">
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
 							<MapPin class="w-6 h-6 text-accent" />
 						</div>
-						<h3 class="font-semibold text-text mb-1">Norwich Digital Hub</h3>
-						<p class="text-sm text-muted">Townshend House, Norwich</p>
+						<h3 class="font-semibold text-text mb-1">Townshend House</h3>
+						<p class="text-sm text-muted">30 Crown Rd, Norwich NR1 3DT</p>
 					</div>
 					<div class="text-center">
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
 							<Users class="w-6 h-6 text-accent" />
 						</div>
-						<h3 class="font-semibold text-text mb-1">Mostly In Person</h3>
-						<p class="text-sm text-muted">With 2 online-only events per year</p>
+						<h3 class="font-semibold text-text mb-1">Free to Attend</h3>
+						<p class="text-sm text-muted">All skill levels welcome</p>
 					</div>
 				</div>
 			</div>
@@ -89,10 +106,22 @@
 			</div>
 		</div>
 
+		<!-- Topics We Cover -->
+		<div class="max-w-4xl mx-auto mb-16">
+			<h2 class="text-2xl font-bold text-text text-center mb-8">What We Cover</h2>
+			<div class="flex flex-wrap justify-center gap-3">
+				{#each topics as topic}
+					<span class="px-4 py-2 bg-surface border border-border text-muted rounded-lg text-sm font-medium hover:border-accent/50 transition-colors">
+						{topic}
+					</span>
+				{/each}
+			</div>
+		</div>
+
 		<!-- Benefits -->
 		<div class="max-w-4xl mx-auto mb-16">
 			<h2 class="text-2xl font-bold text-text text-center mb-8">Why Join Us?</h2>
-			<div class="grid md:grid-cols-3 gap-6">
+			<div class="grid md:grid-cols-4 gap-6">
 				{#each benefits as { icon: Icon, title, description }}
 					<div class="card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -136,15 +165,17 @@
 				<Calendar class="w-12 h-12 text-accent mx-auto mb-4" />
 				<h2 class="text-2xl font-bold text-text mb-2">Join Our Next Meetup</h2>
 				<p class="text-muted mb-6 max-w-xl mx-auto">
-					We announce our events on LinkedIn. Follow us to stay updated and register for upcoming meetups.
+					Visit our website for upcoming events, or follow us on LinkedIn to stay updated. Want to speak? Submit your session via Sessionize.
 				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
 					<a
-						href="/events"
+						href="https://www.nppug.co.uk/"
+						target="_blank"
+						rel="noopener noreferrer"
 						class="btn-primary"
 					>
-						View Upcoming Events
-						<Calendar class="w-4 h-4 ml-2" />
+						Visit nppug.co.uk
+						<ExternalLink class="w-4 h-4 ml-2" />
 					</a>
 					<a
 						href="https://www.linkedin.com/company/norfolk-power-platform-user-group/"
@@ -154,6 +185,15 @@
 					>
 						<Linkedin class="w-4 h-4 mr-2" />
 						Follow on LinkedIn
+					</a>
+					<a
+						href="https://sessionize.com/norfolk-power-platform-user-group-IP/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn-secondary"
+					>
+						<Mic class="w-4 h-4 mr-2" />
+						Submit a Session
 					</a>
 				</div>
 			</div>
