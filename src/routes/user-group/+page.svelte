@@ -67,8 +67,8 @@
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
 							<Clock class="w-6 h-6 text-accent" />
 						</div>
-						<h3 class="font-semibold text-text mb-1">Thursday Evenings</h3>
-						<p class="text-sm text-muted">6:15 PM - 8:45 PM</p>
+						<h3 class="font-semibold text-text mb-1">First Thursday</h3>
+						<p class="text-sm text-muted">Of most months, 6:15 PM - 8:45 PM</p>
 					</div>
 					<div class="text-center">
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
@@ -85,6 +85,9 @@
 						<p class="text-sm text-muted">All skill levels welcome</p>
 					</div>
 				</div>
+				<p class="text-center text-sm text-muted mt-6">
+					Check out the calendar on <a href="https://www.nppug.co.uk/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">nppug.co.uk</a> for up-to-date news and event dates.
+				</p>
 			</div>
 		</div>
 
