@@ -30,11 +30,6 @@
 <header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-border">
 	<nav class="container-custom">
 		<div class="flex items-center justify-between h-16">
-			<!-- Logo -->
-			<a href="/" class="text-xl font-bold text-text hover:text-accent transition-colors">
-				Duncan Boyne
-			</a>
-
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center space-x-6">
 				{#each navLinks as link}
