@@ -17,6 +17,7 @@
 
 <svelte:head>
 	<title>Duncan Boyne - Power BI Consultant</title>
+	<script defer src="https://cloud.umami.is/script.js" data-website-id="17dd8826-5bf3-43d7-b785-b78f205d2845"></script>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
