@@ -49,6 +49,27 @@ export async function getEvents(upcoming = true) {
 	return data;
 }
 
+export async function getTalks() {
+	const { data, error } = await supabase
+		.from('talks')
+		.select('*')
+		.order('created_at', { ascending: false });
+
+	if (error) throw error;
+	return data;
+}
+
+export async function getTalkBySlug(slug: string) {
+	const { data, error } = await supabase
+		.from('talks')
+		.select('*')
+		.eq('slug', slug)
+		.single();
+
+	if (error) throw error;
+	return data;
+}
+
 export async function getVideos(limit?: number) {
 	let query = supabase
 		.from('videos')

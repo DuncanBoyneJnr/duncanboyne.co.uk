@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Menu, X, Home, FileText, Video, Calendar, User, Mail, Sparkles, Users } from 'lucide-svelte';
+	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users } from 'lucide-svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let mobileMenuOpen = false;
@@ -10,6 +10,7 @@
 		{ href: '/blog', label: 'Blog', icon: FileText },
 		{ href: '/videos', label: 'Videos', icon: Video },
 		{ href: '/events', label: 'Events', icon: Calendar },
+		{ href: '/talks', label: 'Talks', icon: Mic },
 		{ href: '/summit', label: 'EoEPPS', icon: Sparkles },
 		{ href: '/user-group', label: 'NPPUG', icon: Users },
 		{ href: '/about', label: 'About', icon: User },

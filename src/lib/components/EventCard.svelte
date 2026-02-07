@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Calendar, MapPin, ExternalLink, Mic, Users } from 'lucide-svelte';
+	import { Calendar, MapPin, ExternalLink, Mic, Users, ArrowRight } from 'lucide-svelte';
 	import type { Event } from '$lib/types';
 
 	export let event: Event;
@@ -20,6 +20,8 @@
 			minute: '2-digit'
 		});
 	}
+
+	let expanded = false;
 
 	$: isSpeaking = event.event_type === 'Speaking';
 	$: isOrganizing = event.event_type === 'Organizing';
@@ -65,9 +67,28 @@
 
 			<!-- Description -->
 			{#if event.description}
-				<p class="text-muted text-sm mb-4 line-clamp-2">
-					{event.description}
-				</p>
+				<button
+					class="text-left w-full mb-4 cursor-pointer"
+					on:click|stopPropagation={() => expanded = !expanded}
+				>
+					<p class="text-muted text-sm {expanded ? '' : 'line-clamp-2'}">
+						{event.description}
+					</p>
+					<span class="text-accent text-xs font-medium mt-1 inline-block hover:underline">
+						{expanded ? 'Show less' : 'Read more'}
+					</span>
+				</button>
+			{/if}
+
+			<!-- Talk Link -->
+			{#if isSpeaking && event.talk_slug}
+				<a
+					href="/talks/{event.talk_slug}"
+					class="inline-flex items-center text-sm text-info font-medium hover:underline mb-4"
+				>
+					View full talk details
+					<ArrowRight class="w-4 h-4 ml-1" />
+				</a>
 			{/if}
 
 			<!-- Location -->

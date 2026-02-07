@@ -18,6 +18,17 @@ export interface Event {
 	location: string | null;
 	event_url: string | null;
 	event_type: string | null;
+	talk_slug: string | null;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface Talk {
+	id: number;
+	title: string;
+	slug: string;
+	content: string;
+	excerpt: string | null;
 	created_at: string;
 	updated_at: string;
 }
@@ -45,6 +56,11 @@ export interface Database {
 				Row: Event;
 				Insert: Omit<Event, 'id' | 'created_at' | 'updated_at'>;
 				Update: Partial<Omit<Event, 'id' | 'created_at' | 'updated_at'>>;
+			};
+			talks: {
+				Row: Talk;
+				Insert: Omit<Talk, 'id' | 'created_at' | 'updated_at'>;
+				Update: Partial<Omit<Talk, 'id' | 'created_at' | 'updated_at'>>;
 			};
 			videos: {
 				Row: Video;

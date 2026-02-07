@@ -4,4 +4,5 @@ export { default as Hero } from './Hero.svelte';
 export { default as ThemeToggle } from './ThemeToggle.svelte';
 export { default as BlogCard } from './BlogCard.svelte';
 export { default as EventCard } from './EventCard.svelte';
+export { default as TalkCard } from './TalkCard.svelte';
 export { default as VideoCard } from './VideoCard.svelte';
