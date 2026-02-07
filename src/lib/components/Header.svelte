@@ -36,7 +36,7 @@
 				{#each navLinks as link}
 					<a
 						href={link.href}
-						class="flex items-center gap-2 text-sm font-medium transition-colors px-3 py-2 rounded-lg {currentPath === link.href
+						class="flex items-center gap-2 text-sm font-medium transition-colors px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent {currentPath === link.href
 							? 'text-accent bg-accent/10'
 							: 'text-muted hover:text-text hover:bg-border'}"
 					>
@@ -52,8 +52,9 @@
 				<ThemeToggle />
 				<button
 					on:click={toggleMenu}
-					class="p-2 rounded-lg text-muted hover:text-text hover:bg-border"
+					class="p-2 rounded-lg text-muted hover:text-text hover:bg-border focus:outline-none focus:ring-2 focus:ring-accent"
 					aria-label="Toggle menu"
+					aria-expanded={mobileMenuOpen}
 				>
 					{#if mobileMenuOpen}
 						<X class="w-6 h-6" />
@@ -72,7 +73,7 @@
 						<a
 							href={link.href}
 							on:click={closeMenu}
-							class="flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium transition-colors {currentPath === link.href
+							class="flex items-center gap-3 px-3 py-2 rounded-lg text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent {currentPath === link.href
 								? 'text-accent bg-accent/10'
 								: 'text-muted hover:text-text hover:bg-border'}"
 						>

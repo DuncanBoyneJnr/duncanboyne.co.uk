@@ -38,10 +38,10 @@
 						? 'bg-accent/15 text-accent'
 						: 'bg-border text-muted'}">
 					{#if isSpeaking}
-						<Mic class="w-3.5 h-3.5" />
+						<Mic class="w-3.5 h-3.5" aria-hidden="true" />
 						Speaking
 					{:else if isOrganizing}
-						<Users class="w-3.5 h-3.5" />
+						<Users class="w-3.5 h-3.5" aria-hidden="true" />
 						Organizing
 					{:else}
 						Event
@@ -56,7 +56,7 @@
 
 			<!-- Date & Time -->
 			<div class="flex items-center text-sm text-accent font-medium mb-2">
-				<Calendar class="w-4 h-4 mr-2" />
+				<Calendar class="w-4 h-4 mr-2" aria-hidden="true" />
 				<span>{formatDate(event.event_date)} · {formatTime(event.event_date)}</span>
 			</div>
 
@@ -68,8 +68,9 @@
 			<!-- Description -->
 			{#if event.description}
 				<button
-					class="text-left w-full mb-4 cursor-pointer"
+					class="text-left w-full mb-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent rounded"
 					on:click|stopPropagation={() => expanded = !expanded}
+					aria-expanded={expanded}
 				>
 					<p class="text-muted text-sm {expanded ? '' : 'line-clamp-2'}">
 						{event.description}
@@ -87,14 +88,14 @@
 					class="inline-flex items-center text-sm text-info font-medium hover:underline mb-4"
 				>
 					View full talk details
-					<ArrowRight class="w-4 h-4 ml-1" />
+					<ArrowRight class="w-4 h-4 ml-1" aria-hidden="true" />
 				</a>
 			{/if}
 
 			<!-- Location -->
 			{#if event.location}
 				<div class="flex items-center text-sm text-muted mb-4">
-					<MapPin class="w-4 h-4 mr-2 flex-shrink-0" />
+					<MapPin class="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true" />
 					<span class="line-clamp-1">{event.location}</span>
 				</div>
 			{/if}
@@ -114,7 +115,7 @@
 					{:else}
 						View Details
 					{/if}
-					<ExternalLink class="w-4 h-4 ml-2" />
+					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 				</a>
 			{/if}
 		</div>

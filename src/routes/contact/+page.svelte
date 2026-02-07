@@ -68,7 +68,7 @@
 					{#if submitted}
 						<div class="bg-success/10 border border-success/20 rounded-xl p-6 text-center">
 							<div class="w-12 h-12 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-4">
-								<Send class="w-6 h-6 text-success" />
+								<Send class="w-6 h-6 text-success" aria-hidden="true" />
 							</div>
 							<h3 class="text-lg font-semibold text-text mb-2">Message Sent!</h3>
 							<p class="text-muted">Thank you for reaching out. I'll get back to you soon.</p>
@@ -144,7 +144,7 @@
 									Sending...
 								{:else}
 									Send Message
-									<Send class="w-4 h-4 ml-2" />
+									<Send class="w-4 h-4 ml-2" aria-hidden="true" />
 								{/if}
 							</button>
 						</form>
@@ -160,7 +160,7 @@
 						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 							<div class="flex items-start space-x-4">
 								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-									<Mail class="w-5 h-5 text-accent" />
+									<Mail class="w-5 h-5 text-accent" aria-hidden="true" />
 								</div>
 								<div>
 									<h3 class="font-medium text-text mb-1">Email</h3>
@@ -175,7 +175,7 @@
 						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 							<div class="flex items-start space-x-4">
 								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-									<MapPin class="w-5 h-5 text-accent" />
+									<MapPin class="w-5 h-5 text-accent" aria-hidden="true" />
 								</div>
 								<div>
 									<h3 class="font-medium text-text mb-1">Location</h3>
@@ -188,7 +188,7 @@
 						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 							<div class="flex items-start space-x-4">
 								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-									<Mic class="w-5 h-5 text-accent" />
+									<Mic class="w-5 h-5 text-accent" aria-hidden="true" />
 								</div>
 								<div>
 									<h3 class="font-medium text-text mb-1">Speaking Enquiries</h3>
@@ -199,7 +199,7 @@
 										class="inline-flex items-center text-accent hover:underline"
 									>
 										View my Sessionize profile
-										<ExternalLink class="w-4 h-4 ml-1" />
+										<ExternalLink class="w-4 h-4 ml-1" aria-hidden="true" />
 									</a>
 								</div>
 							</div>
@@ -216,7 +216,7 @@
 										rel="noopener noreferrer"
 										class="flex items-center space-x-3 text-muted hover:text-accent transition-colors"
 									>
-										<Icon class="w-5 h-5" />
+										<Icon class="w-5 h-5" aria-hidden="true" />
 										<span>{label}</span>
 										<span class="text-sm text-muted/70">{username}</span>
 									</a>

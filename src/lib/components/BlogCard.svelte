@@ -14,7 +14,7 @@
 </script>
 
 <article class="group cursor-pointer">
-	<a href="/blog/{post.slug}" class="block">
+	<a href="/blog/{post.slug}" class="block focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
 		<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
 			{#if post.featured_image}
 				<div class="aspect-video overflow-hidden">
@@ -33,7 +33,7 @@
 			<div class="p-5">
 				{#if post.published_at}
 					<div class="flex items-center text-sm text-muted mb-3">
-						<Calendar class="w-4 h-4 mr-2" />
+						<Calendar class="w-4 h-4 mr-2" aria-hidden="true" />
 						<time datetime={post.published_at}>{formatDate(post.published_at)}</time>
 					</div>
 				{/if}
@@ -50,7 +50,7 @@
 
 				<span class="inline-flex items-center text-accent font-medium text-sm group-hover:underline">
 					Read more
-					<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+					<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" aria-hidden="true" />
 				</span>
 			</div>
 		</div>

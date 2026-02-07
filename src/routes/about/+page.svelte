@@ -110,7 +110,7 @@
 				{#each highlights as { icon: Icon, title, description }}
 					<div class="card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
 						<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-							<Icon class="w-6 h-6 text-accent" />
+							<Icon class="w-6 h-6 text-accent" aria-hidden="true" />
 						</div>
 						<h3 class="font-semibold text-text mb-2">{title}</h3>
 						<p class="text-sm text-muted">{description}</p>
@@ -134,7 +134,7 @@
 		<!-- Speaking / Sessionize CTA -->
 		<div class="max-w-4xl mx-auto">
 			<div class="card p-8 text-center bg-gradient-to-br from-accent/5 to-accent2/5 border-accent/20">
-				<Mic class="w-12 h-12 text-accent mx-auto mb-4" />
+				<Mic class="w-12 h-12 text-accent mx-auto mb-4" aria-hidden="true" />
 				<h2 class="text-2xl font-bold text-text mb-2">Want Me to Speak at Your Event?</h2>
 				<p class="text-muted mb-6 max-w-xl mx-auto">
 					I speak at conferences, user groups, and community events about Power BI,
@@ -147,7 +147,7 @@
 					class="btn-primary"
 				>
 					View My Sessionize Profile
-					<ExternalLink class="w-4 h-4 ml-2" />
+					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 				</a>
 			</div>
 		</div>

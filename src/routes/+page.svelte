@@ -46,7 +46,7 @@
 		<div class="flex items-center justify-between mb-8">
 			<div class="flex items-center gap-3">
 				<div class="p-2 bg-accent/10 rounded-lg">
-					<FileText class="w-5 h-5 text-accent" />
+					<FileText class="w-5 h-5 text-accent" aria-hidden="true" />
 				</div>
 				<h2 class="text-2xl font-bold text-text">Latest Posts</h2>
 			</div>
@@ -73,7 +73,7 @@
 			<p class="text-center text-muted py-8">{error}</p>
 		{:else if posts.length === 0}
 			<div class="text-center py-12 bg-bg rounded-xl border border-border">
-				<FileText class="w-12 h-12 text-muted/50 mx-auto mb-4" />
+				<FileText class="w-12 h-12 text-muted/50 mx-auto mb-4" aria-hidden="true" />
 				<p class="text-muted">No posts yet. Check back soon!</p>
 			</div>
 		{:else}
@@ -92,7 +92,7 @@
 		<div class="flex items-center justify-between mb-8">
 			<div class="flex items-center gap-3">
 				<div class="p-2 bg-accent/10 rounded-lg">
-					<Calendar class="w-5 h-5 text-accent" />
+					<Calendar class="w-5 h-5 text-accent" aria-hidden="true" />
 				</div>
 				<h2 class="text-2xl font-bold text-text">Upcoming Events</h2>
 			</div>
@@ -115,7 +115,7 @@
 			</div>
 		{:else if events.length === 0}
 			<div class="text-center py-12 bg-surface rounded-xl border border-border">
-				<Calendar class="w-12 h-12 text-muted/50 mx-auto mb-4" />
+				<Calendar class="w-12 h-12 text-muted/50 mx-auto mb-4" aria-hidden="true" />
 				<p class="text-muted">No upcoming events at the moment.</p>
 				<p class="text-muted/70 text-sm mt-1">Check back soon!</p>
 			</div>
@@ -135,7 +135,7 @@
 		<div class="flex items-center justify-between mb-8">
 			<div class="flex items-center gap-3">
 				<div class="p-2 bg-accent/10 rounded-lg">
-					<Video class="w-5 h-5 text-accent" />
+					<Video class="w-5 h-5 text-accent" aria-hidden="true" />
 				</div>
 				<h2 class="text-2xl font-bold text-text">Recent Videos</h2>
 			</div>
@@ -159,7 +159,7 @@
 			</div>
 		{:else if videos.length === 0}
 			<div class="text-center py-12 bg-bg rounded-xl border border-border">
-				<Video class="w-12 h-12 text-muted/50 mx-auto mb-4" />
+				<Video class="w-12 h-12 text-muted/50 mx-auto mb-4" aria-hidden="true" />
 				<p class="text-muted">No videos yet. Check back soon!</p>
 			</div>
 		{:else}

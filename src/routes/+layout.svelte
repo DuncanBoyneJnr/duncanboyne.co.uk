@@ -21,8 +21,11 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
+	<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-[#1F1F1F] focus:font-medium focus:rounded-lg">
+		Skip to main content
+	</a>
 	<Header />
-	<main class="flex-1">
+	<main id="main" class="flex-1">
 		<slot />
 	</main>
 	<Footer />

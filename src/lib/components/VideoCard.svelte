@@ -42,7 +42,7 @@
 				/>
 				<button
 					on:click={() => (showEmbed = true)}
-					class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors"
+					class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors focus:outline-none focus:ring-4 focus:ring-accent focus:ring-inset"
 					aria-label="Play video"
 				>
 					<div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-lg">
@@ -55,7 +55,7 @@
 		<div class="p-5">
 			{#if video.published_at}
 				<div class="flex items-center text-sm text-muted mb-2">
-					<Calendar class="w-4 h-4 mr-2" />
+					<Calendar class="w-4 h-4 mr-2" aria-hidden="true" />
 					<time datetime={video.published_at}>{formatDate(video.published_at)}</time>
 				</div>
 			{/if}
@@ -77,7 +77,7 @@
 				class="inline-flex items-center text-sm text-accent font-medium hover:underline"
 			>
 				Watch on YouTube
-				<ExternalLink class="w-4 h-4 ml-1" />
+				<ExternalLink class="w-4 h-4 ml-1" aria-hidden="true" />
 			</a>
 		</div>
 	</div>
