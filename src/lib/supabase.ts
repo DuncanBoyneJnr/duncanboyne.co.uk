@@ -70,6 +70,17 @@ export async function getTalkBySlug(slug: string) {
 	return data;
 }
 
+export async function getEventsByTalkSlug(talkSlug: string) {
+	const { data, error } = await supabase
+		.from('events')
+		.select('*')
+		.eq('talk_slug', talkSlug)
+		.order('event_date', { ascending: true });
+
+	if (error) throw error;
+	return data;
+}
+
 export async function getVideos(limit?: number) {
 	let query = supabase
 		.from('videos')

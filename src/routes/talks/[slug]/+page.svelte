@@ -1,19 +1,37 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { ArrowLeft, Mic } from 'lucide-svelte';
-	import { getTalkBySlug } from '$lib/supabase';
-	import type { Talk } from '$lib/types';
+	import { ArrowLeft, Mic, Calendar, MapPin, ExternalLink } from 'lucide-svelte';
+	import { getTalkBySlug, getEventsByTalkSlug } from '$lib/supabase';
+	import type { Talk, Event } from '$lib/types';
 
 	let talk: Talk | null = null;
+	let upcomingEvents: Event[] = [];
+	let pastEvents: Event[] = [];
 	let loading = true;
 	let error: string | null = null;
 
 	$: slug = $page.params.slug;
 
+	function formatDate(dateString: string): string {
+		return new Date(dateString).toLocaleDateString('en-GB', {
+			weekday: 'short',
+			day: 'numeric',
+			month: 'short',
+			year: 'numeric'
+		});
+	}
+
 	onMount(async () => {
 		try {
-			talk = await getTalkBySlug(slug);
+			const [talkData, events] = await Promise.all([
+				getTalkBySlug(slug),
+				getEventsByTalkSlug(slug)
+			]);
+			talk = talkData;
+			const now = new Date().toISOString();
+			upcomingEvents = (events || []).filter(e => e.event_date >= now);
+			pastEvents = (events || []).filter(e => e.event_date < now);
 		} catch (e) {
 			error = 'Failed to load this talk. It may not exist.';
 			console.error(e);
@@ -76,6 +94,73 @@
 					{talk.content}
 				</div>
 			</div>
+
+			<!-- Upcoming Events -->
+			{#if upcomingEvents.length > 0}
+				<div class="mt-12 pt-8 border-t border-border">
+					<h2 class="text-2xl font-bold text-text mb-6">Upcoming Events</h2>
+					<div class="space-y-4">
+						{#each upcomingEvents as event}
+							<div class="card p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+								<div class="flex-1">
+									<h3 class="font-semibold text-text">{event.title}</h3>
+									<div class="flex flex-wrap items-center gap-4 mt-2 text-sm text-muted">
+										<span class="flex items-center gap-1.5">
+											<Calendar class="w-4 h-4" />
+											{formatDate(event.event_date)}
+										</span>
+										{#if event.location}
+											<span class="flex items-center gap-1.5">
+												<MapPin class="w-4 h-4" />
+												{event.location}
+											</span>
+										{/if}
+									</div>
+								</div>
+								{#if event.event_url}
+									<a
+										href={event.event_url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center px-4 py-2 bg-accent text-[#1F1F1F] font-medium rounded-lg hover:bg-accent2 transition-colors text-sm whitespace-nowrap"
+									>
+										Register
+										<ExternalLink class="w-4 h-4 ml-2" />
+									</a>
+								{/if}
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			<!-- Past Events -->
+			{#if pastEvents.length > 0}
+				<div class="mt-12 pt-8 border-t border-border">
+					<h2 class="text-2xl font-bold text-text mb-6">Previously Presented At</h2>
+					<div class="space-y-4">
+						{#each pastEvents as event}
+							<div class="card p-5 flex flex-col sm:flex-row sm:items-center gap-4 opacity-60">
+								<div class="flex-1">
+									<h3 class="font-semibold text-text">{event.title}</h3>
+									<div class="flex flex-wrap items-center gap-4 mt-2 text-sm text-muted">
+										<span class="flex items-center gap-1.5">
+											<Calendar class="w-4 h-4" />
+											{formatDate(event.event_date)}
+										</span>
+										{#if event.location}
+											<span class="flex items-center gap-1.5">
+												<MapPin class="w-4 h-4" />
+												{event.location}
+											</span>
+										{/if}
+									</div>
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
 		{/if}
 	</div>
 </article>
