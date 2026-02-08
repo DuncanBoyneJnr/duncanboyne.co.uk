@@ -7,7 +7,8 @@
 	const tagImages: Record<string, string> = {
 		'#EoEPPS': '/eoepps-logo.png',
 		'#NPPUG': '/nppug-logo.png',
-		'#MCRDataHive': '/mcr-data-hive.png'
+		'#MCRDataHive': '/mcr-data-hive.png',
+		'#PowerBI': '/powerbi-logo.png'
 	};
 
 	function getTagImage(content: string): string | null {
