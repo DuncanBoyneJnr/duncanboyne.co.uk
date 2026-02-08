@@ -77,7 +77,7 @@
 				<p class="text-muted">No posts yet. Check back soon!</p>
 			</div>
 		{:else}
-			<div class="grid md:grid-cols-3 gap-6">
+			<div class="grid {posts.length < 3 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6 items-stretch">
 				{#each posts as post}
 					<BlogCard {post} />
 				{/each}

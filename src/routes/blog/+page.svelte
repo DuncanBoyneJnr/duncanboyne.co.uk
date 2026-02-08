@@ -55,7 +55,7 @@
 				<p class="text-muted/70">Check back soon for new content!</p>
 			</div>
 		{:else}
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
 				{#each posts as post}
 					<BlogCard {post} />
 				{/each}
