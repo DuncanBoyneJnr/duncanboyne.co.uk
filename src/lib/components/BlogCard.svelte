@@ -4,6 +4,22 @@
 
 	export let post: Post;
 
+	const defaultImages = [
+		'/nppug-logo.png',
+		'/mcr-data-hive.png',
+		'/eoepps-logo.png',
+		'/profile.jpg'
+	];
+
+	function getDefaultImage(slug: string): string {
+		let hash = 0;
+		for (let i = 0; i < slug.length; i++) {
+			hash = ((hash << 5) - hash) + slug.charCodeAt(i);
+			hash |= 0;
+		}
+		return defaultImages[Math.abs(hash) % defaultImages.length];
+	}
+
 	function formatDate(dateString: string): string {
 		return new Date(dateString).toLocaleDateString('en-GB', {
 			day: 'numeric',
@@ -25,8 +41,12 @@
 					/>
 				</div>
 			{:else}
-				<div class="aspect-video bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center">
-					<span class="text-4xl font-bold text-accent/30">DB</span>
+				<div class="aspect-video bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center overflow-hidden">
+					<img
+						src={getDefaultImage(post.slug)}
+						alt={post.title}
+						class="w-auto h-3/4 object-contain"
+					/>
 				</div>
 			{/if}
 

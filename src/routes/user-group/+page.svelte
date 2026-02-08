@@ -50,6 +50,7 @@
 				<Sparkles class="w-4 h-4" aria-hidden="true" />
 				Founded by Duncan Boyne
 			</div>
+			<img src="/nppug-logo.png" alt="Norfolk Power Platform User Group" class="w-48 h-auto mx-auto mb-6" />
 			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">
 				Norfolk Power Platform User Group
 			</h1>

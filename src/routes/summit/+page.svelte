@@ -47,6 +47,7 @@
 				<Sparkles class="w-4 h-4" aria-hidden="true" />
 				Founded by Duncan Boyne
 			</div>
+			<img src="/eoepps-logo.png" alt="East of England Power Platform Summit" class="w-48 h-auto mx-auto mb-6" />
 			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">
 				East of England Power Platform Summit
 			</h1>
