@@ -86,13 +86,13 @@
 		<!-- Why I Co-Founded It -->
 		<div class="max-w-4xl mx-auto mb-16">
 			<div class="card p-8 md:p-10">
-				<h2 class="text-2xl font-bold text-text mb-6">Why I Co-Founded the Hive</h2>
+				<h2 class="text-2xl font-bold text-text mb-6">Why I Co-Founded Manchester Data Hive</h2>
 				<div class="space-y-4 text-muted">
 					<p>
-						Manchester has an incredible data community, but there wasn't a dedicated, free event bringing together professionals across the full Microsoft Data & AI stack. I wanted to help change that.
+						It all started with a message from <a href="https://linkedin.com/in/juliana-smith-citp/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Juliana Smith</a>, asking if anyone could help her create a data community event in Manchester. Shortly after, we jumped on a call - and what followed was a flurry of LinkedIn messages, WhatsApp chats, emails, and a shared vision that quickly took shape.
 					</p>
 					<p>
-						After seeing the energy and talent in the region, it was clear that Manchester deserved a community day where data engineers, BI analysts, data scientists, and AI practitioners could come together to share knowledge and grow.
+						That vision? To bring together the data and AI community in Manchester for a proper community day. We're being ambitious, we're being bold, and we're <em>bee</em>-ing dedicated to making it happen. Manchester Data Hive is built for the people - a free, community-first event where everyone is welcome.
 					</p>
 					<p>
 						Manchester Data Hive is about making world-class data content accessible to everyone - whether you're a seasoned professional or just starting your journey into data and AI.
