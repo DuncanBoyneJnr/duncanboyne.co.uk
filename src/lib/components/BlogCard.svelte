@@ -8,7 +8,8 @@
 		'#EoEPPS': '/eoepps-logo.png',
 		'#NPPUG': '/nppug-logo.png',
 		'#MCRDataHive': '/mcr-data-hive.png',
-		'#PowerBI': '/powerbi-logo.png'
+		'#PowerBI': '/powerbi-logo.png',
+		'#ReasonsToStay': '/reasons-to-stay.png'
 	};
 
 	function getTagImage(content: string): string | null {

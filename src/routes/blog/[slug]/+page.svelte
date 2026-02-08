@@ -3,7 +3,16 @@
 	import { page } from '$app/stores';
 	import { ArrowLeft, Calendar, Clock } from 'lucide-svelte';
 	import { getPostBySlug } from '$lib/supabase';
+	import { marked } from 'marked';
 	import type { Post } from '$lib/types';
+
+	const renderer = new marked.Renderer();
+	const originalLinkRenderer = renderer.link.bind(renderer);
+	renderer.link = function (args) {
+		const html = originalLinkRenderer(args);
+		return html.replace('<a ', '<a target="_blank" rel="noopener noreferrer" ');
+	};
+	marked.setOptions({ renderer });
 
 	let post: Post | null = null;
 	let loading = true;
@@ -109,10 +118,8 @@
 				</div>
 			{/if}
 
-			<div class="prose prose-lg max-w-none text-text prose-headings:text-text prose-a:text-accent">
-				<div class="whitespace-pre-wrap">
-					{post.content}
-				</div>
+			<div class="prose prose-lg max-w-none text-text prose-headings:text-text prose-a:text-accent prose-a:underline">
+				{@html marked(post.content)}
 			</div>
 		{/if}
 	</div>
