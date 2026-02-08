@@ -30,9 +30,9 @@
 	}
 </script>
 
-<article class="group cursor-pointer">
-	<a href="/blog/{post.slug}" class="block focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
-		<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
+<article class="group cursor-pointer h-full">
+	<a href="/blog/{post.slug}" class="block h-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
+		<div class="card h-full flex flex-col overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
 			{#if cardImage}
 				<div class="aspect-video overflow-hidden bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center">
 					<img
@@ -47,7 +47,7 @@
 				</div>
 			{/if}
 
-			<div class="p-5">
+			<div class="p-5 flex flex-col flex-1">
 				{#if post.published_at}
 					<div class="flex items-center text-sm text-muted mb-3">
 						<Calendar class="w-4 h-4 mr-2" aria-hidden="true" />
@@ -65,7 +65,7 @@
 					</p>
 				{/if}
 
-				<span class="inline-flex items-center text-accent font-medium text-sm group-hover:underline">
+				<span class="inline-flex items-center text-accent font-medium text-sm group-hover:underline mt-auto">
 					Read more
 					<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" aria-hidden="true" />
 				</span>
