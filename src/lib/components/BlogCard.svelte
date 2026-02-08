@@ -4,21 +4,20 @@
 
 	export let post: Post;
 
-	const defaultImages = [
-		'/nppug-logo.png',
-		'/mcr-data-hive.png',
-		'/eoepps-logo.png',
-		'/profile.jpg'
-	];
+	const tagImages: Record<string, string> = {
+		'#EoEPPS': '/eoepps-logo.png',
+		'#NPPUG': '/nppug-logo.png',
+		'#MCRDataHive': '/mcr-data-hive.png'
+	};
 
-	function getDefaultImage(slug: string): string {
-		let hash = 0;
-		for (let i = 0; i < slug.length; i++) {
-			hash = ((hash << 5) - hash) + slug.charCodeAt(i);
-			hash |= 0;
+	function getTagImage(content: string): string | null {
+		for (const [tag, image] of Object.entries(tagImages)) {
+			if (content.includes(tag)) return image;
 		}
-		return defaultImages[Math.abs(hash) % defaultImages.length];
+		return null;
 	}
+
+	$: cardImage = post.featured_image || (post.content ? getTagImage(post.content) : null);
 
 	function formatDate(dateString: string): string {
 		return new Date(dateString).toLocaleDateString('en-GB', {
@@ -32,21 +31,17 @@
 <article class="group cursor-pointer">
 	<a href="/blog/{post.slug}" class="block focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
 		<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
-			{#if post.featured_image}
-				<div class="aspect-video overflow-hidden">
+			{#if cardImage}
+				<div class="aspect-video overflow-hidden bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center">
 					<img
-						src={post.featured_image}
+						src={cardImage}
 						alt={post.title}
-						class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+						class="{post.featured_image ? 'w-full h-full object-cover transition-transform duration-300 group-hover:scale-105' : 'w-auto h-3/4 object-contain'}"
 					/>
 				</div>
 			{:else}
-				<div class="aspect-video bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center overflow-hidden">
-					<img
-						src={getDefaultImage(post.slug)}
-						alt={post.title}
-						class="w-auto h-3/4 object-contain"
-					/>
+				<div class="aspect-video bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center">
+					<span class="text-4xl font-bold text-accent/30">DB</span>
 				</div>
 			{/if}
 

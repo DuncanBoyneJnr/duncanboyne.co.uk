@@ -12,7 +12,7 @@
 		{ href: '/events', label: 'Events', icon: Calendar },
 		{ href: '/talks', label: 'Talks', icon: Mic },
 		{ href: '/summit', label: 'EoEPPS', icon: Sparkles },
-		{ href: '/mcr-data-hive', label: 'Data Hive', icon: Database },
+		{ href: '/mcr-data-hive', label: 'DataHive', icon: Database },
 		{ href: '/user-group', label: 'NPPUG', icon: Users },
 		{ href: '/about', label: 'About', icon: User },
 		{ href: '/contact', label: 'Contact', icon: Mail }
