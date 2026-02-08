@@ -118,9 +118,76 @@
 				</div>
 			{/if}
 
-			<div class="prose prose-lg max-w-none text-text prose-headings:text-text prose-a:text-accent prose-a:underline">
+			<div class="blog-content">
 				{@html marked(post.content)}
 			</div>
 		{/if}
 	</div>
 </article>
+
+<style>
+	.blog-content {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: var(--color-text);
+	}
+
+	.blog-content :global(a) {
+		color: var(--color-accent);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		font-weight: 500;
+	}
+
+	.blog-content :global(a:hover),
+	.blog-content :global(a:focus) {
+		color: var(--color-accent2);
+	}
+
+	.blog-content :global(h1),
+	.blog-content :global(h2),
+	.blog-content :global(h3) {
+		color: var(--color-text);
+		font-weight: 700;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.blog-content :global(h1) { font-size: 2rem; }
+	.blog-content :global(h2) { font-size: 1.5rem; }
+	.blog-content :global(h3) { font-size: 1.25rem; }
+
+	.blog-content :global(p) {
+		margin-bottom: 1.25rem;
+	}
+
+	.blog-content :global(strong) {
+		font-weight: 700;
+	}
+
+	.blog-content :global(ul),
+	.blog-content :global(ol) {
+		margin-bottom: 1.25rem;
+		padding-left: 1.5rem;
+	}
+
+	.blog-content :global(ul) { list-style-type: disc; }
+	.blog-content :global(ol) { list-style-type: decimal; }
+
+	.blog-content :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	.blog-content :global(hr) {
+		border-color: var(--color-border);
+		margin: 2rem 0;
+	}
+
+	.blog-content :global(blockquote) {
+		border-left: 4px solid var(--color-accent);
+		padding-left: 1rem;
+		color: var(--color-muted);
+		font-style: italic;
+		margin-bottom: 1.25rem;
+	}
+</style>
