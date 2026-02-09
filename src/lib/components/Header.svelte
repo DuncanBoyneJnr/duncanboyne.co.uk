@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users, Database, List, ChevronDown } from 'lucide-svelte';
+	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users, Database, BookOpen, Tv, Gamepad2, ChevronDown } from 'lucide-svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let mobileMenuOpen = false;
@@ -45,7 +45,9 @@
 			icon: User,
 			children: [
 				{ href: '/about', label: 'About Me', icon: User },
-				{ href: '/lists', label: 'Lists & Reviews', icon: List }
+				{ href: '/reading', label: 'Reading', icon: BookOpen },
+				{ href: '/anime', label: 'Anime', icon: Tv },
+				{ href: '/gaming', label: 'Gaming', icon: Gamepad2 }
 			]
 		},
 		{ href: '/contact', label: 'Contact', icon: Mail }
