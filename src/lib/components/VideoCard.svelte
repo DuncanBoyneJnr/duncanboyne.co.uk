@@ -23,8 +23,8 @@
 	}
 </script>
 
-<article class="group">
-	<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
+<article class="group h-full">
+	<div class="card h-full flex flex-col overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
 		<div class="relative aspect-video overflow-hidden">
 			{#if showEmbed}
 				<iframe
@@ -52,7 +52,7 @@
 			{/if}
 		</div>
 
-		<div class="p-5">
+		<div class="p-5 flex flex-col flex-1">
 			{#if video.published_at}
 				<div class="flex items-center text-sm text-muted mb-2">
 					<Calendar class="w-4 h-4 mr-2" aria-hidden="true" />
@@ -74,7 +74,7 @@
 				href={getYoutubeUrl(video.youtube_id)}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-flex items-center text-sm text-accent font-medium hover:underline"
+				class="inline-flex items-center text-sm text-accent font-medium hover:underline mt-auto"
 			>
 				Watch on YouTube
 				<ExternalLink class="w-4 h-4 ml-1" aria-hidden="true" />

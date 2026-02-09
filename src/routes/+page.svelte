@@ -163,7 +163,7 @@
 				<p class="text-muted">No videos yet. Check back soon!</p>
 			</div>
 		{:else}
-			<div class="grid md:grid-cols-3 gap-6">
+			<div class="grid md:grid-cols-3 gap-6 items-stretch">
 				{#each videos as video}
 					<VideoCard {video} />
 				{/each}
