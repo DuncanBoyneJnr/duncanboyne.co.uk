@@ -148,7 +148,7 @@
 								<div class="col-span-2">Final Rank</div>
 							</div>
 
-							{#each visibleAchievements(group) as achievement, i}
+							{#each (expandedGames[group.game] ? group.achievements : group.achievements.slice(0, 3)) as achievement, i}
 								{@const stats = parseNotes(achievement.notes)}
 								<div class="sm:grid sm:grid-cols-10 gap-4 px-5 py-4 items-center {i > 0 ? 'border-t border-border' : ''} hover:bg-accent/5 transition-colors">
 									<!-- Set -->
