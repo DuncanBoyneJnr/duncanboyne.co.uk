@@ -78,6 +78,13 @@
 		aboutOpen = false;
 	}
 
+	function handleDropdownKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape') {
+			closeDropdowns();
+			(e.currentTarget as HTMLElement)?.closest('.relative')?.querySelector('button')?.focus();
+		}
+	}
+
 	function isChildActive(children: NavLink[], path: string): boolean {
 		return children.some(c => c.href === path);
 	}
@@ -97,6 +104,7 @@
 						<div class="relative">
 							<button
 								on:click|stopPropagation={() => toggleDropdown(item.label.toLowerCase())}
+								on:keydown={(e) => e.key === 'Escape' && closeDropdowns()}
 								class="flex items-center gap-1.5 text-sm font-medium transition-colors px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent {isChildActive(item.children, currentPath)
 									? 'text-accent bg-accent/10'
 									: 'text-muted hover:text-text hover:bg-border'}"
@@ -109,19 +117,24 @@
 							</button>
 
 							{#if (item.label === 'Community' && communityOpen) || (item.label === 'About' && aboutOpen)}
+								<!-- svelte-ignore a11y-click-events-have-key-events -->
 								<div
 									class="absolute top-full left-0 mt-1 w-48 bg-surface border border-border rounded-xl shadow-lg py-2 z-50"
+									role="menu"
+									tabindex="-1"
 									on:click|stopPropagation
+									on:keydown={handleDropdownKeydown}
 								>
 									{#each item.children as child}
 										<a
 											href={child.href}
 											on:click={closeDropdowns}
+											role="menuitem"
 											class="flex items-center gap-3 px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent {currentPath === child.href
 												? 'text-accent bg-accent/10'
 												: 'text-muted hover:text-text hover:bg-border'}"
 										>
-											<svelte:component this={child.icon} class="w-4 h-4" />
+											<svelte:component this={child.icon} class="w-4 h-4" aria-hidden="true" />
 											{child.label}
 										</a>
 									{/each}
