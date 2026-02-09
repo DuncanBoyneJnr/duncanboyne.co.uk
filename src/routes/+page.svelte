@@ -77,7 +77,7 @@
 				<p class="text-muted">No posts yet. Check back soon!</p>
 			</div>
 		{:else}
-			<div class="grid {posts.length < 3 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6 items-stretch">
+			<div class="grid {posts.length < 3 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6 grid-equal-height">
 				{#each posts as post}
 					<BlogCard {post} />
 				{/each}
@@ -120,7 +120,7 @@
 				<p class="text-muted/70 text-sm mt-1">Check back soon!</p>
 			</div>
 		{:else}
-			<div class="grid md:grid-cols-2 gap-6 items-stretch">
+			<div class="grid md:grid-cols-2 gap-6 grid-equal-height">
 				{#each events as event}
 					<EventCard {event} />
 				{/each}
@@ -163,7 +163,7 @@
 				<p class="text-muted">No videos yet. Check back soon!</p>
 			</div>
 		{:else}
-			<div class="grid md:grid-cols-3 gap-6 items-stretch">
+			<div class="grid md:grid-cols-3 gap-6 grid-equal-height">
 				{#each videos as video}
 					<VideoCard {video} />
 				{/each}

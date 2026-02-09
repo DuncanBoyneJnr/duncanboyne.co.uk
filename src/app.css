@@ -76,6 +76,11 @@
 	.text-balance {
 		text-wrap: balance;
 	}
+
+	.grid-equal-height > * {
+		height: 100%;
+		min-height: 0;
+	}
 }
 
 /* Custom scrollbar */
