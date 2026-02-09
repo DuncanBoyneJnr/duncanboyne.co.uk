@@ -95,3 +95,55 @@ export async function getVideos(limit?: number) {
 	if (error) throw error;
 	return data;
 }
+
+export async function getBooks() {
+	const { data, error } = await supabase
+		.from('books')
+		.select('*')
+		.order('created_at', { ascending: false });
+
+	if (error) throw error;
+	return data;
+}
+
+export async function getBookBySlug(slug: string) {
+	const { data, error } = await supabase
+		.from('books')
+		.select('*')
+		.eq('slug', slug)
+		.single();
+
+	if (error) throw error;
+	return data;
+}
+
+export async function getAnime() {
+	const { data, error } = await supabase
+		.from('anime')
+		.select('*')
+		.order('created_at', { ascending: false });
+
+	if (error) throw error;
+	return data;
+}
+
+export async function getAnimeBySlug(slug: string) {
+	const { data, error } = await supabase
+		.from('anime')
+		.select('*')
+		.eq('slug', slug)
+		.single();
+
+	if (error) throw error;
+	return data;
+}
+
+export async function getGamingAchievements() {
+	const { data, error } = await supabase
+		.from('gaming_achievements')
+		.select('*')
+		.order('created_at', { ascending: false });
+
+	if (error) throw error;
+	return data;
+}

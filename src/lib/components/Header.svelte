@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users, Database } from 'lucide-svelte';
+	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users, Database, List } from 'lucide-svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let mobileMenuOpen = false;
@@ -14,6 +14,7 @@
 		{ href: '/summit', label: 'EoEPPS', icon: Sparkles },
 		{ href: '/mcr-data-hive', label: 'DataHive', icon: Database },
 		{ href: '/user-group', label: 'NPPUG', icon: Users },
+		{ href: '/lists', label: 'Lists', icon: List },
 		{ href: '/about', label: 'About', icon: User },
 		{ href: '/contact', label: 'Contact', icon: Mail }
 	];

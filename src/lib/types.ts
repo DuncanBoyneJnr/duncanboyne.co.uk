@@ -43,6 +43,59 @@ export interface Video {
 	updated_at: string;
 }
 
+export interface Book {
+	id: number;
+	title: string;
+	slug: string;
+	author: string;
+	series: string | null;
+	status: 'want_to_read' | 'reading' | 'completed';
+	rating: number | null;
+	tags: string[];
+	started_at: string | null;
+	finished_at: string | null;
+	excerpt: string | null;
+	review: string | null;
+	image: string | null;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface Anime {
+	id: number;
+	title: string;
+	slug: string;
+	seasons: number | null;
+	episodes: number | null;
+	year: number | null;
+	status: 'watching' | 'completed' | 'on_hold' | 'dropped' | 'plan_to_watch';
+	rating: number | null;
+	tags: string[];
+	started_at: string | null;
+	finished_at: string | null;
+	excerpt: string | null;
+	review: string | null;
+	image: string | null;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface GamingAchievement {
+	id: number;
+	title: string;
+	slug: string;
+	game: string;
+	achievement_type: string;
+	value: string;
+	season: string | null;
+	rating: number | null;
+	tags: string[];
+	notes: string | null;
+	image: string | null;
+	created_at: string;
+	updated_at: string;
+}
+
 // Database types for Supabase
 export interface Database {
 	public: {
@@ -66,6 +119,21 @@ export interface Database {
 				Row: Video;
 				Insert: Omit<Video, 'id' | 'created_at' | 'updated_at'>;
 				Update: Partial<Omit<Video, 'id' | 'created_at' | 'updated_at'>>;
+			};
+			books: {
+				Row: Book;
+				Insert: Omit<Book, 'id' | 'created_at' | 'updated_at'>;
+				Update: Partial<Omit<Book, 'id' | 'created_at' | 'updated_at'>>;
+			};
+			anime: {
+				Row: Anime;
+				Insert: Omit<Anime, 'id' | 'created_at' | 'updated_at'>;
+				Update: Partial<Omit<Anime, 'id' | 'created_at' | 'updated_at'>>;
+			};
+			gaming_achievements: {
+				Row: GamingAchievement;
+				Insert: Omit<GamingAchievement, 'id' | 'created_at' | 'updated_at'>;
+				Update: Partial<Omit<GamingAchievement, 'id' | 'created_at' | 'updated_at'>>;
 			};
 		};
 	};

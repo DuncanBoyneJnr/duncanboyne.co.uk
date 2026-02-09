@@ -6,3 +6,6 @@ export { default as BlogCard } from './BlogCard.svelte';
 export { default as EventCard } from './EventCard.svelte';
 export { default as TalkCard } from './TalkCard.svelte';
 export { default as VideoCard } from './VideoCard.svelte';
+export { default as BookCard } from './BookCard.svelte';
+export { default as AnimeCard } from './AnimeCard.svelte';
+export { default as GamingCard } from './GamingCard.svelte';

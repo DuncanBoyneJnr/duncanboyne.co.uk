@@ -9,7 +9,8 @@
 		'#NPPUG': '/nppug-logo.png',
 		'#MCRDataHive': '/mcr-data-hive.png',
 		'#PowerBI': '/powerbi-logo.png',
-		'#ReasonsToStay': '/reasons-to-stay.png'
+		'#ReasonsToStay': '/reasons-to-stay.png',
+		'#Claude': '/claudeAILogo.png'
 	};
 
 	function getTagImage(content: string): string | null {
