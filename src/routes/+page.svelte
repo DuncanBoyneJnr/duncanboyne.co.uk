@@ -120,7 +120,7 @@
 				<p class="text-muted/70 text-sm mt-1">Check back soon!</p>
 			</div>
 		{:else}
-			<div class="grid md:grid-cols-2 gap-6">
+			<div class="grid md:grid-cols-2 gap-6 items-stretch">
 				{#each events as event}
 					<EventCard {event} />
 				{/each}

@@ -44,7 +44,7 @@
 			<div class="space-y-8">
 				<div>
 					<h2 class="text-2xl font-bold text-text mb-6">Upcoming Events</h2>
-					<div class="grid md:grid-cols-2 gap-6">
+					<div class="grid md:grid-cols-2 gap-6 items-stretch">
 						{#each [1, 2] as _}
 							<div class="card animate-pulse p-6 space-y-3">
 								<div class="h-6 bg-border rounded w-1/4" />
@@ -68,7 +68,7 @@
 						<p class="text-muted/70 text-sm mt-2">Check back soon for new events!</p>
 					</div>
 				{:else}
-					<div class="grid md:grid-cols-2 gap-6">
+					<div class="grid md:grid-cols-2 gap-6 items-stretch">
 						{#each upcomingEvents as event}
 							<EventCard {event} />
 						{/each}
@@ -80,7 +80,7 @@
 			{#if pastEvents.length > 0}
 				<div>
 					<h2 class="text-2xl font-bold text-text mb-6">Past Events</h2>
-					<div class="grid md:grid-cols-2 gap-6">
+					<div class="grid md:grid-cols-2 gap-6 items-stretch">
 						{#each pastEvents as event}
 							<EventCard {event} isPast={true} />
 						{/each}

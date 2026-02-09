@@ -37,9 +37,9 @@
 	});
 </script>
 
-<article class="group">
-	<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1 {isPast ? 'opacity-75' : ''}">
-		<div class="p-5">
+<article class="group h-full">
+	<div class="card h-full flex flex-col overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1 {isPast ? 'opacity-75' : ''}">
+		<div class="p-5 flex flex-col flex-1">
 			<!-- Badge Row -->
 			<div class="flex items-center justify-between mb-4">
 				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full {isSpeaking
@@ -122,7 +122,7 @@
 					href={event.event_url}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-[#1F1F1F] font-medium rounded-lg hover:bg-accent2 transition-colors text-sm"
+					class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-accent text-[#1F1F1F] font-medium rounded-lg hover:bg-accent2 transition-colors text-sm mt-auto"
 				>
 					{#if isPast}
 						View Event
