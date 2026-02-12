@@ -6,6 +6,7 @@ export interface Post {
 	excerpt: string | null;
 	published_at: string | null;
 	featured_image: string | null;
+	tags: string[];
 	created_at: string;
 	updated_at: string;
 }

@@ -7,6 +7,19 @@
 	let posts: Post[] = [];
 	let loading = true;
 	let error: string | null = null;
+	let activeFilter = 'all';
+
+	const filters = [
+		{ value: 'all', label: 'All' },
+		{ value: 'Power BI', label: 'Power BI' },
+		{ value: 'NPPUG', label: 'NPPUG' },
+		{ value: 'EoEPPS', label: 'EoEPPS' },
+		{ value: 'ManchesterDataHive', label: 'Manchester Data Hive' },
+		{ value: 'MentalHealth', label: 'Mental Health' },
+		{ value: 'AI', label: 'AI' },
+		{ value: 'Talks', label: 'Talks' },
+		{ value: 'Conferences', label: 'Conferences' }
+	];
 
 	onMount(async () => {
 		try {
@@ -18,6 +31,10 @@
 			loading = false;
 		}
 	});
+
+	$: filteredPosts = activeFilter === 'all'
+		? posts
+		: posts.filter(p => p.tags?.includes(activeFilter));
 </script>
 
 <svelte:head>
@@ -49,17 +66,35 @@
 			</div>
 		{:else if error}
 			<p class="text-center text-muted py-12">{error}</p>
-		{:else if posts.length === 0}
-			<div class="text-center py-12">
-				<p class="text-muted mb-4">No blog posts yet.</p>
-				<p class="text-muted/70">Check back soon for new content!</p>
-			</div>
 		{:else}
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-				{#each posts as post}
-					<BlogCard {post} />
+			<!-- Filters -->
+			<div class="flex flex-wrap gap-2 mb-8" role="tablist" aria-label="Filter by category">
+				{#each filters as filter}
+					<button
+						on:click={() => activeFilter = filter.value}
+						class="px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent {activeFilter === filter.value
+							? 'bg-accent text-bg'
+							: 'bg-surface border border-border text-muted hover:text-text hover:border-accent/50'}"
+						role="tab"
+						aria-selected={activeFilter === filter.value}
+					>
+						{filter.label}
+					</button>
 				{/each}
 			</div>
+
+			{#if filteredPosts.length === 0}
+				<div class="text-center py-12 bg-surface rounded-xl border border-border">
+					<p class="text-muted">No posts found for this category.</p>
+					<p class="text-muted/70 text-sm mt-2">Try a different filter or check back later.</p>
+				</div>
+			{:else}
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+					{#each filteredPosts as post}
+						<BlogCard {post} />
+					{/each}
+				</div>
+			{/if}
 		{/if}
 	</div>
 </section>
