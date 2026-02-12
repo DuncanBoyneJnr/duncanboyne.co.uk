@@ -41,6 +41,8 @@
 
 	$: sortedBooks = [...filteredBooks].sort((a, b) => {
 		if (sortBy === 'recent') {
+			if (a.finished_at && !b.finished_at) return -1;
+			if (!a.finished_at && b.finished_at) return 1;
 			const aDate = a.finished_at || a.started_at || a.created_at;
 			const bDate = b.finished_at || b.started_at || b.created_at;
 			return new Date(bDate).getTime() - new Date(aDate).getTime();
@@ -83,7 +85,7 @@
 			<p class="text-center text-muted py-12">{error}</p>
 		{:else}
 			<!-- Currently Reading Highlight -->
-			{#if currentlyReading.length > 0}
+			{#if currentlyReading.length > 0 && (activeFilter === 'all' || activeFilter === 'reading')}
 				<div class="mb-12">
 					<h2 class="text-2xl font-bold text-text mb-6 flex items-center gap-2">
 						<BookOpen class="w-6 h-6 text-accent" aria-hidden="true" />

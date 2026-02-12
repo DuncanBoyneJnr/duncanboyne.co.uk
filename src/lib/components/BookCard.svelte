@@ -15,17 +15,20 @@
 		reading: 'bg-warning/20 text-warning',
 		completed: 'bg-success/20 text-success'
 	};
+
+	let imageFailed = false;
 </script>
 
 <article class="group cursor-pointer h-full">
 	<a href="/reading/{book.slug}" class="block h-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
 		<div class="card h-full flex flex-col overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
-			{#if book.image}
+			{#if book.image && !imageFailed}
 				<div class="aspect-[2/3] max-h-64 overflow-hidden bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center">
 					<img
 						src={book.image}
 						alt="Cover of {book.title}"
 						class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+						on:error={() => imageFailed = true}
 					/>
 				</div>
 			{:else}
