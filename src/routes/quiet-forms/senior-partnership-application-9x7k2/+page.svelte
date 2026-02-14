@@ -79,15 +79,15 @@
 		'Possessor of elite-level sass'
 	];
 
-	const requiredChecks = {
-		section2q2: () => formData.dogsBoardMembers !== '',
-		section4a: () => formData.roastWhenNeeded,
-		section4b: () => formData.protectWhenNeeded,
-		section4c: () => formData.eyeRollSometimes,
-		section4d: () => formData.loveWiser,
-		section5radio: () => formData.believeAgain !== '',
-		section5text: () => formData.fiveYearVision.trim().length > 0,
-		section6text: () => formData.finalAnswer.trim().length > 0
+	$: requiredChecks = {
+		section2q2: formData.dogsBoardMembers !== '',
+		section4a: formData.roastWhenNeeded,
+		section4b: formData.protectWhenNeeded,
+		section4c: formData.eyeRollSometimes,
+		section4d: formData.loveWiser,
+		section5radio: formData.believeAgain !== '',
+		section5text: formData.fiveYearVision.trim().length > 0,
+		section6text: formData.finalAnswer.trim().length > 0
 	};
 
 	function toggleArrayValue(arr: string[], value: string): string[] {
@@ -128,7 +128,7 @@
 		localStorage.removeItem(draftKey);
 	}
 
-	$: completedRequired = Object.values(requiredChecks).filter((check) => check()).length;
+	$: completedRequired = Object.values(requiredChecks).filter(Boolean).length;
 	$: totalRequired = Object.keys(requiredChecks).length;
 	$: progressPercent = Math.round((completedRequired / totalRequired) * 100);
 	$: inventorySummary = formData.assets.length > 0 ? formData.assets.join(', ') : 'None selected yet';
@@ -173,7 +173,14 @@
 			closeButton?.focus();
 		} catch (error) {
 			console.error(error);
-			submitError = 'Could not submit right now. Please try again in a moment.';
+			const message =
+				typeof error === 'object' &&
+				error !== null &&
+				'message' in error &&
+				typeof (error as { message: unknown }).message === 'string'
+					? (error as { message: string }).message
+					: 'Could not submit right now. Please try again in a moment.';
+			submitError = `Submit failed: ${message}`;
 		} finally {
 			submitting = false;
 		}
@@ -309,7 +316,7 @@ Playful. But serious where it matters.</p>
 							<span>No</span>
 						</label>
 					</div>
-					{#if attemptedSubmit && !requiredChecks.section2q2()}
+					{#if attemptedSubmit && !requiredChecks.section2q2}
 						<p id="s2q2-error" class="text-sm text-error mt-2">Please choose yes or no for this required question.</p>
 					{/if}
 				</fieldset>
@@ -394,7 +401,7 @@ Playful. But serious where it matters.</p>
 							<span>You will love me like you did when we were young, but wiser</span>
 						</label>
 					</div>
-					{#if attemptedSubmit && (!requiredChecks.section4a() || !requiredChecks.section4b() || !requiredChecks.section4c() || !requiredChecks.section4d())}
+					{#if attemptedSubmit && (!requiredChecks.section4a || !requiredChecks.section4b || !requiredChecks.section4c || !requiredChecks.section4d)}
 						<p id="s4-error" class="text-sm text-error mt-2">Please tick all four required confirmations.</p>
 					{/if}
 				</fieldset>
@@ -412,7 +419,7 @@ Playful. But serious where it matters.</p>
 							</label>
 						{/each}
 					</div>
-					{#if attemptedSubmit && !requiredChecks.section5radio()}
+					{#if attemptedSubmit && !requiredChecks.section5radio}
 						<p id="s5r-error" class="text-sm text-error mt-2">Please choose one required option.</p>
 					{/if}
 				</fieldset>
@@ -420,7 +427,7 @@ Playful. But serious where it matters.</p>
 				<div>
 					<label for="fiveYearVision" class="block text-sm font-medium text-text mb-2">Where do you see this partnership in 5 years? <span class="text-error" aria-hidden="true">* required</span></label>
 					<textarea id="fiveYearVision" rows="5" bind:value={formData.fiveYearVision} class="w-full px-4 py-3 rounded-lg border border-border bg-surface text-text focus:ring-2 focus:ring-accent focus:border-transparent resize-none" />
-					{#if attemptedSubmit && !requiredChecks.section5text()}
+					{#if attemptedSubmit && !requiredChecks.section5text}
 						<p class="text-sm text-error mt-2">Please answer this required question.</p>
 					{/if}
 				</div>
@@ -431,7 +438,7 @@ Playful. But serious where it matters.</p>
 				<div>
 					<label for="finalAnswer" class="block text-sm font-medium text-text mb-2">After 20 years... What made you look at me again and think, 'Maybe this idiot is still mine.' <span class="text-error" aria-hidden="true">* required</span></label>
 					<textarea id="finalAnswer" rows="6" bind:value={formData.finalAnswer} class="w-full px-4 py-3 rounded-lg border border-border bg-surface text-text focus:ring-2 focus:ring-accent focus:border-transparent resize-none" />
-					{#if attemptedSubmit && !requiredChecks.section6text()}
+					{#if attemptedSubmit && !requiredChecks.section6text}
 						<p class="text-sm text-error mt-2">Please complete the final required answer.</p>
 					{/if}
 				</div>
