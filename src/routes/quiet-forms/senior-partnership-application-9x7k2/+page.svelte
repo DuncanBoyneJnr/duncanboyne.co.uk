@@ -2,6 +2,7 @@
 	import { onMount, tick } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { Save, RotateCcw, Send, Heart, CheckCircle2 } from 'lucide-svelte';
+	import { submitGirlfriendApplication } from '$lib/supabase';
 
 	type YesNo = 'yes' | 'no' | '';
 
@@ -57,6 +58,8 @@
 	let attemptedSubmit = false;
 	let savedMessage = '';
 	let modalOpen = false;
+	let submitting = false;
+	let submitError: string | null = null;
 	let closeButton: HTMLButtonElement | null = null;
 
 	const inventoryOptions = [
@@ -125,10 +128,6 @@
 		localStorage.removeItem(draftKey);
 	}
 
-	function fieldError(show: boolean, message: string) {
-		return show ? message : '';
-	}
-
 	$: completedRequired = Object.values(requiredChecks).filter((check) => check()).length;
 	$: totalRequired = Object.keys(requiredChecks).length;
 	$: progressPercent = Math.round((completedRequired / totalRequired) * 100);
@@ -140,18 +139,54 @@
 
 	async function submitApplication() {
 		attemptedSubmit = true;
+		submitError = null;
 		if (completedRequired !== totalRequired) return;
-		modalOpen = true;
-		await tick();
-		closeButton?.focus();
+		submitting = true;
+
+		try {
+			await submitGirlfriendApplication({
+				name: formData.name || null,
+				nickname: formData.nickname || null,
+				favourite_snack: formData.favouriteSnack || null,
+				sass_line: formData.sassLine || null,
+				assets: formData.assets,
+				relationship_mode: formData.relationshipMode || null,
+				dog_compatibility_plan: formData.dogCompatibilityPlan || null,
+				dogs_board_members: formData.dogsBoardMembers as 'yes' | 'no',
+				dog_favourite_plan: formData.dogFavouritePlan || null,
+				chicken_authority: formData.chickenAuthority,
+				named_chicken_legal: formData.namedChickenLegal || null,
+				building_type: formData.buildingType || null,
+				traits: formData.traits,
+				roast_when_needed: formData.roastWhenNeeded,
+				protect_when_needed: formData.protectWhenNeeded,
+				eye_roll_sometimes: formData.eyeRollSometimes,
+				love_wiser: formData.loveWiser,
+				believe_again: formData.believeAgain,
+				five_year_vision: formData.fiveYearVision,
+				final_answer: formData.finalAnswer
+			});
+
+			localStorage.removeItem(draftKey);
+			modalOpen = true;
+			await tick();
+			closeButton?.focus();
+		} catch (error) {
+			console.error(error);
+			submitError = 'Could not submit right now. Please try again in a moment.';
+		} finally {
+			submitting = false;
+		}
 	}
 
 	function handleModalKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape') {
+		if (modalOpen && event.key === 'Escape') {
 			modalOpen = false;
 		}
 	}
 </script>
+
+<svelte:window on:keydown={handleModalKeydown} />
 
 <svelte:head>
 	<title>Girlfriend Application Form - Duncan Boyne</title>
@@ -404,9 +439,9 @@ Playful. But serious where it matters.</p>
 
 			<div class="card p-5 md:p-6" in:fade={{ duration: 250 }}>
 				<div class="flex flex-col sm:flex-row gap-3">
-					<button type="submit" class="btn-primary">
+					<button type="submit" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed" disabled={submitting}>
 						<Send class="w-4 h-4 mr-2" aria-hidden="true" />
-						Submit Application
+						{submitting ? 'Submitting...' : 'Submit Application'}
 					</button>
 					<button type="button" class="btn-secondary" on:click={saveDraft}>
 						<Save class="w-4 h-4 mr-2" aria-hidden="true" />
@@ -420,6 +455,9 @@ Playful. But serious where it matters.</p>
 				{#if savedMessage}
 					<p class="text-sm text-success mt-3">{savedMessage}</p>
 				{/if}
+				{#if submitError}
+					<p class="text-sm text-error mt-3">{submitError}</p>
+				{/if}
 			</div>
 		</form>
 
@@ -428,19 +466,19 @@ Playful. But serious where it matters.</p>
 </section>
 
 {#if modalOpen}
-	<div class="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4" on:click={() => (modalOpen = false)} on:keydown={handleModalKeydown} transition:fade>
+	<div class="fixed inset-0 z-[100] flex items-center justify-center p-4" transition:fade>
+		<button type="button" class="absolute inset-0 bg-black/50" on:click={() => (modalOpen = false)} aria-label="Close summary modal" />
 		<div
-			class="card w-full max-w-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto"
+			class="card relative w-full max-w-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="application-summary-title"
-			on:click|stopPropagation
 			in:fly={{ y: 10, duration: 180 }}
 		>
 			<div class="flex items-start justify-between gap-4 mb-4">
 				<div>
 					<h2 id="application-summary-title" class="text-2xl font-semibold text-text">Application Summary</h2>
-					<p class="text-muted">Submission captured (without sending anywhere).</p>
+					<p class="text-muted">Submission captured and stored successfully.</p>
 				</div>
 				<button bind:this={closeButton} class="btn-secondary px-3 py-2" on:click={() => (modalOpen = false)} aria-label="Close summary modal">Close</button>
 			</div>

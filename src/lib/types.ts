@@ -97,6 +97,31 @@ export interface GamingAchievement {
 	updated_at: string;
 }
 
+export interface GirlfriendApplication {
+	id: number;
+	name: string | null;
+	nickname: string | null;
+	favourite_snack: string | null;
+	sass_line: string | null;
+	assets: string[];
+	relationship_mode: string | null;
+	dog_compatibility_plan: string | null;
+	dogs_board_members: 'yes' | 'no';
+	dog_favourite_plan: string | null;
+	chicken_authority: number;
+	named_chicken_legal: 'yes' | 'no' | null;
+	building_type: string | null;
+	traits: string[];
+	roast_when_needed: boolean;
+	protect_when_needed: boolean;
+	eye_roll_sometimes: boolean;
+	love_wiser: boolean;
+	believe_again: string;
+	five_year_vision: string;
+	final_answer: string;
+	created_at: string;
+}
+
 // Database types for Supabase
 export interface Database {
 	public: {
@@ -135,6 +160,11 @@ export interface Database {
 				Row: GamingAchievement;
 				Insert: Omit<GamingAchievement, 'id' | 'created_at' | 'updated_at'>;
 				Update: Partial<Omit<GamingAchievement, 'id' | 'created_at' | 'updated_at'>>;
+			};
+			girlfriend_applications: {
+				Row: GirlfriendApplication;
+				Insert: Omit<GirlfriendApplication, 'id' | 'created_at'>;
+				Update: Partial<Omit<GirlfriendApplication, 'id' | 'created_at'>>;
 			};
 		};
 	};

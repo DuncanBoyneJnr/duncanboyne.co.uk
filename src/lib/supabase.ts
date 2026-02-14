@@ -147,3 +147,13 @@ export async function getGamingAchievements() {
 	if (error) throw error;
 	return data;
 }
+
+export async function submitGirlfriendApplication(
+	application: Database['public']['Tables']['girlfriend_applications']['Insert']
+) {
+	const { error } = await supabase
+		.from('girlfriend_applications' as never)
+		.insert(application as never);
+
+	if (error) throw error;
+}
