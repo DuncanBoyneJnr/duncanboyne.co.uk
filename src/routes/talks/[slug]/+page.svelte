@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { ArrowLeft, Mic, Calendar, MapPin, ExternalLink } from 'lucide-svelte';
+	import { ArrowLeft, Mic, Calendar, MapPin, ExternalLink, FileText } from 'lucide-svelte';
 	import { getTalkBySlug, getEventsByTalkSlug } from '$lib/supabase';
 	import type { Talk, Event } from '$lib/types';
 
@@ -117,17 +117,30 @@
 										{/if}
 									</div>
 								</div>
-								{#if event.event_url}
-									<a
-										href={event.event_url}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="inline-flex items-center px-4 py-2 bg-accent text-[#1F1F1F] font-medium rounded-lg hover:bg-accent2 transition-colors text-sm whitespace-nowrap"
-									>
-										Register
-										<ExternalLink class="w-4 h-4 ml-2" />
-									</a>
-								{/if}
+								<div class="flex items-center gap-2">
+									{#if event.slide_deck_url}
+										<a
+											href={event.slide_deck_url}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="inline-flex items-center px-4 py-2 border border-accent text-accent font-medium rounded-lg hover:bg-accent/10 transition-colors text-sm whitespace-nowrap"
+										>
+											<FileText class="w-4 h-4 mr-2" />
+											Slides
+										</a>
+									{/if}
+									{#if event.event_url}
+										<a
+											href={event.event_url}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="inline-flex items-center px-4 py-2 bg-accent text-[#1F1F1F] font-medium rounded-lg hover:bg-accent2 transition-colors text-sm whitespace-nowrap"
+										>
+											Register
+											<ExternalLink class="w-4 h-4 ml-2" />
+										</a>
+									{/if}
+								</div>
 							</div>
 						{/each}
 					</div>
@@ -156,6 +169,17 @@
 										{/if}
 									</div>
 								</div>
+								{#if event.slide_deck_url}
+									<a
+										href={event.slide_deck_url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center px-4 py-2 border border-accent text-accent font-medium rounded-lg hover:bg-accent/10 transition-colors text-sm whitespace-nowrap"
+									>
+										<FileText class="w-4 h-4 mr-2" />
+										Slides
+									</a>
+								{/if}
 							</div>
 						{/each}
 					</div>
