@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Mail, MapPin, Github, Linkedin, Youtube, Send, Mic, ExternalLink } from 'lucide-svelte';
+	import { Mail, Github, Linkedin, Youtube, Send, Mic, ExternalLink } from 'lucide-svelte';
 
 	let formData = {
 		name: '',
@@ -167,19 +167,6 @@
 									<a href="mailto:duncanboyne@hotmail.co.uk" class="text-accent hover:underline">
 										duncanboyne@hotmail.co.uk
 									</a>
-								</div>
-							</div>
-						</div>
-
-						<!-- Location -->
-						<div class="card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-							<div class="flex items-start space-x-4">
-								<div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-									<MapPin class="w-5 h-5 text-accent" aria-hidden="true" />
-								</div>
-								<div>
-									<h3 class="font-medium text-text mb-1">Location</h3>
-									<p class="text-muted">Norwich, England, United Kingdom</p>
 								</div>
 							</div>
 						</div>
