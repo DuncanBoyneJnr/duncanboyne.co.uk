@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { Rss } from 'lucide-svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import { getPosts } from '$lib/supabase';
 	import type { Post } from '$lib/types';
@@ -49,6 +50,16 @@
 			<p class="text-lg text-muted max-w-2xl mx-auto">
 				Insights, tutorials, and thoughts on Power BI, data visualization, and business intelligence.
 			</p>
+			<a
+				href="/rss.xml"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 mt-4 text-sm text-muted hover:text-accent transition-colors"
+				aria-label="Subscribe via RSS feed (opens in new window)"
+			>
+				<Rss class="w-4 h-4" aria-hidden="true" />
+				Subscribe via RSS
+			</a>
 		</div>
 
 		{#if loading}
