@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
-	import { Calendar, MapPin, ExternalLink, Mic, Users, ArrowRight } from 'lucide-svelte';
+	import { Calendar, MapPin, ExternalLink, Mic, Users, ArrowRight, FileText } from 'lucide-svelte';
 	import type { Event } from '$lib/types';
 
 	export let event: Event;
@@ -105,6 +105,20 @@
 				>
 					View full talk details
 					<ArrowRight class="w-4 h-4 ml-1" aria-hidden="true" />
+				</a>
+			{/if}
+
+			<!-- Slide Deck -->
+			{#if event.slide_deck_url}
+				<a
+					href={event.slide_deck_url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center text-sm text-accent font-medium hover:underline mb-4 focus:outline-none focus:ring-2 focus:ring-accent rounded"
+				>
+					<FileText class="w-4 h-4 mr-1" aria-hidden="true" />
+					View Slide Deck
+					<ExternalLink class="w-3 h-3 ml-1" aria-hidden="true" />
 				</a>
 			{/if}
 

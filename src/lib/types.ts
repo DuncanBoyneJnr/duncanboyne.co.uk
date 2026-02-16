@@ -20,6 +20,7 @@ export interface Event {
 	event_url: string | null;
 	event_type: string | null;
 	talk_slug: string | null;
+	slide_deck_url: string | null;
 	created_at: string;
 	updated_at: string;
 }
