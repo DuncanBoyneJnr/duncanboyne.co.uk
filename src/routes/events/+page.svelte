@@ -41,6 +41,9 @@
 		</div>
 
 		{#if loading}
+			<div role="status" aria-live="polite">
+				<span class="sr-only">Loading events...</span>
+			</div>
 			<div class="space-y-8">
 				<div>
 					<h2 class="text-2xl font-bold text-text mb-6">Upcoming Events</h2>

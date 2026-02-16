@@ -45,6 +45,7 @@
 					<a href="https://sessionize.com/duncan-boyne" target="_blank" rel="noopener noreferrer" class="btn-secondary">
 						<Mic class="w-4 h-4 mr-2" />
 						Book Me to Speak
+						<span class="sr-only"> (opens in new window)</span>
 					</a>
 				</div>
 
@@ -59,6 +60,7 @@
 							aria-label={label}
 						>
 							<Icon class="w-6 h-6" />
+							<span class="sr-only"> (opens in new window)</span>
 						</a>
 					{/each}
 				</div>

@@ -147,6 +147,7 @@
 					class="btn-primary"
 				>
 					View My Sessionize Profile
+					<span class="sr-only"> (opens in new window)</span>
 					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 				</a>
 			</div>

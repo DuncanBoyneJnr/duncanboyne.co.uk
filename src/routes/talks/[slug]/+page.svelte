@@ -127,6 +127,7 @@
 										>
 											<FileText class="w-4 h-4 mr-2" />
 											Slides
+											<span class="sr-only"> (opens in new window)</span>
 										</a>
 									{/if}
 									{#if event.event_url}
@@ -137,6 +138,7 @@
 											class="inline-flex items-center px-4 py-2 bg-accent text-[#1F1F1F] font-medium rounded-lg hover:bg-accent2 transition-colors text-sm whitespace-nowrap"
 										>
 											Register
+											<span class="sr-only"> (opens in new window)</span>
 											<ExternalLink class="w-4 h-4 ml-2" />
 										</a>
 									{/if}
@@ -153,7 +155,7 @@
 					<h2 class="text-2xl font-bold text-text mb-6">Previously Presented At</h2>
 					<div class="space-y-4">
 						{#each pastEvents as event}
-							<div class="card p-5 flex flex-col sm:flex-row sm:items-center gap-4 opacity-60">
+							<div class="card p-5 flex flex-col sm:flex-row sm:items-center gap-4 opacity-60" aria-label="Past event">
 								<div class="flex-1">
 									<h3 class="font-semibold text-text">{event.title}</h3>
 									<div class="flex flex-wrap items-center gap-4 mt-2 text-sm text-muted">
@@ -178,6 +180,7 @@
 									>
 										<FileText class="w-4 h-4 mr-2" />
 										Slides
+										<span class="sr-only"> (opens in new window)</span>
 									</a>
 								{/if}
 							</div>

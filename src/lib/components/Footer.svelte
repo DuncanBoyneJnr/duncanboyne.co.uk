@@ -31,6 +31,7 @@
 						aria-label={label}
 					>
 						<Icon class="w-5 h-5" />
+						<span class="sr-only"> (opens in new window)</span>
 					</a>
 				{/each}
 			</div>

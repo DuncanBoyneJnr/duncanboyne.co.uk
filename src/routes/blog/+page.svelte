@@ -52,6 +52,9 @@
 		</div>
 
 		{#if loading}
+			<div role="status" aria-live="polite">
+				<span class="sr-only">Loading blog posts...</span>
+			</div>
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 				{#each [1, 2, 3, 4, 5, 6] as _}
 					<div class="card animate-pulse">

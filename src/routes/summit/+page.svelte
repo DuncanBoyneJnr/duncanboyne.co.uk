@@ -137,6 +137,7 @@
 						class="btn-primary"
 					>
 						Visit Official Website
+						<span class="sr-only"> (opens in new window)</span>
 						<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 					</a>
 					<a
@@ -147,6 +148,7 @@
 					>
 						<Linkedin class="w-4 h-4 mr-2" aria-hidden="true" />
 						Follow on LinkedIn
+						<span class="sr-only"> (opens in new window)</span>
 					</a>
 				</div>
 			</div>

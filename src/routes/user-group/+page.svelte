@@ -87,7 +87,7 @@
 					</div>
 				</div>
 				<p class="text-center text-sm text-muted mt-6">
-					Check out the calendar on <a href="https://www.nppug.co.uk/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">nppug.co.uk</a> for up-to-date news and event dates.
+					Check out the calendar on <a href="https://www.nppug.co.uk/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">nppug.co.uk<span class="sr-only"> (opens in new window)</span></a> for up-to-date news and event dates.
 				</p>
 			</div>
 		</div>
@@ -179,6 +179,7 @@
 						class="btn-primary"
 					>
 						Visit nppug.co.uk
+						<span class="sr-only"> (opens in new window)</span>
 						<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 					</a>
 					<a
@@ -189,6 +190,7 @@
 					>
 						<Linkedin class="w-4 h-4 mr-2" aria-hidden="true" />
 						Follow on LinkedIn
+						<span class="sr-only"> (opens in new window)</span>
 					</a>
 					<a
 						href="https://sessionize.com/norfolk-power-platform-user-group-IP/"
@@ -198,6 +200,7 @@
 					>
 						<Mic class="w-4 h-4 mr-2" aria-hidden="true" />
 						Submit a Session
+						<span class="sr-only"> (opens in new window)</span>
 					</a>
 				</div>
 			</div>

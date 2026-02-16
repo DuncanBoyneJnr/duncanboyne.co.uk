@@ -132,7 +132,7 @@
 							</div>
 
 							{#if error}
-								<p class="text-error text-sm">{error}</p>
+								<p class="text-error text-sm" role="alert" aria-live="polite">{error}</p>
 							{/if}
 
 							<button
@@ -186,6 +186,7 @@
 										class="inline-flex items-center text-accent hover:underline"
 									>
 										View my Sessionize profile
+										<span class="sr-only"> (opens in new window)</span>
 										<ExternalLink class="w-4 h-4 ml-1" aria-hidden="true" />
 									</a>
 								</div>
@@ -206,6 +207,7 @@
 										<Icon class="w-5 h-5" aria-hidden="true" />
 										<span>{label}</span>
 										<span class="text-sm text-muted/70">{username}</span>
+										<span class="sr-only"> (opens in new window)</span>
 									</a>
 								{/each}
 							</div>

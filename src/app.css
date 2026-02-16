@@ -10,8 +10,8 @@
 		--color-text: #2D2A26;
 		--color-muted: #6B6660;
 		--color-border: #E5E1D8;
-		--color-accent: #F2C811;
-		--color-accent2: #D6AE00;
+		--color-accent: #C49A00;
+		--color-accent2: #A68200;
 		--color-success: #107C10;
 		--color-info: #0078D4;
 		--color-warning: #FFB900;
@@ -100,4 +100,15 @@
 
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }

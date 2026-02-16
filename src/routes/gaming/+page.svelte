@@ -103,6 +103,9 @@
 		</div>
 
 		{#if loading}
+			<div role="status" aria-live="polite">
+				<span class="sr-only">Loading gaming achievements...</span>
+			</div>
 			<div class="space-y-4">
 				{#each [1, 2, 3] as _}
 					<div class="card animate-pulse p-6 space-y-3">
@@ -139,56 +142,47 @@
 						</div>
 
 						<div class="bg-surface rounded-xl border border-border overflow-hidden">
-							<!-- Table header -->
-							<div class="hidden sm:grid sm:grid-cols-10 gap-4 px-5 py-3 bg-border/30 text-xs font-semibold text-muted uppercase tracking-wide">
-								<div class="col-span-2">Set</div>
-								<div class="col-span-2">Games</div>
-								<div class="col-span-2">Top 4%</div>
-								<div class="col-span-2">Wins</div>
-								<div class="col-span-2">Final Rank</div>
-							</div>
-
-							{#each (expandedGames[group.game] ? group.achievements : group.achievements.slice(0, 3)) as achievement, i}
-								{@const stats = parseNotes(achievement.notes)}
-								<div class="sm:grid sm:grid-cols-10 gap-4 px-5 py-4 items-center {i > 0 ? 'border-t border-border' : ''} hover:bg-accent/5 transition-colors">
-									<!-- Set -->
-									<div class="col-span-2 mb-1 sm:mb-0">
-										<span class="font-semibold text-text text-sm">{achievement.season || '-'}</span>
-									</div>
-
-									<!-- Games -->
-									<div class="col-span-2 mb-1 sm:mb-0">
-										{#if stats.games != null}
-											<span class="text-sm text-text">{stats.games}</span>
-										{:else}
-											<span class="text-sm text-muted/50">-</span>
-										{/if}
-									</div>
-
-									<!-- Top 4% -->
-									<div class="col-span-2 mb-1 sm:mb-0">
-										{#if stats.top4}
-											<span class="text-sm text-text">{stats.top4}</span>
-										{:else}
-											<span class="text-sm text-muted/50">-</span>
-										{/if}
-									</div>
-
-									<!-- Wins -->
-									<div class="col-span-2 mb-1 sm:mb-0">
-										{#if stats.wins != null}
-											<span class="text-sm text-text">{stats.wins}</span>
-										{:else}
-											<span class="text-sm text-muted/50">-</span>
-										{/if}
-									</div>
-
-									<!-- Final Rank -->
-									<div class="col-span-2">
-										<span class="text-sm font-bold text-accent">{achievement.value}</span>
-									</div>
-								</div>
-							{/each}
+							<table class="w-full">
+								<thead class="hidden sm:table-header-group">
+									<tr class="bg-border/30 text-xs font-semibold text-muted uppercase tracking-wide">
+										<th class="px-5 py-3 text-left" scope="col">Set</th>
+										<th class="px-5 py-3 text-left" scope="col">Games</th>
+										<th class="px-5 py-3 text-left" scope="col">Top 4%</th>
+										<th class="px-5 py-3 text-left" scope="col">Wins</th>
+										<th class="px-5 py-3 text-left" scope="col">Final Rank</th>
+									</tr>
+								</thead>
+								<tbody>
+									{#each (expandedGames[group.game] ? group.achievements : group.achievements.slice(0, 3)) as achievement, i}
+										{@const stats = parseNotes(achievement.notes)}
+										<tr class="{i > 0 ? 'border-t border-border' : ''} hover:bg-accent/5 transition-colors">
+											<td class="px-5 py-4 font-semibold text-text text-sm">{achievement.season || '-'}</td>
+											<td class="px-5 py-4 text-sm">
+												{#if stats.games != null}
+													<span class="text-text">{stats.games}</span>
+												{:else}
+													<span class="text-muted/50">-</span>
+												{/if}
+											</td>
+											<td class="px-5 py-4 text-sm">
+												{#if stats.top4}
+													<span class="text-text">{stats.top4}</span>
+												{:else}
+													<span class="text-muted/50">-</span>
+												{/if}
+											</td>
+											<td class="px-5 py-4 text-sm">
+												{#if stats.wins != null}
+													<span class="text-text">{stats.wins}</span>
+												{:else}
+													<span class="text-muted/50">-</span>
+												{/if}
+											</td>
+											<td class="px-5 py-4 text-sm font-bold text-accent">{achievement.value}</td>
+										</tr>
+									{/each}
+								</tbody>
+							</table>
 
 							<!-- Show more / Show less -->
 							{#if group.achievements.length > 3}

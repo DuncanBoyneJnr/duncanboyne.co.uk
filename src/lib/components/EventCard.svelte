@@ -82,6 +82,7 @@
 						class="text-left w-full mb-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent rounded"
 						on:click|stopPropagation={() => expanded = !expanded}
 						aria-expanded={expanded}
+						aria-label="{expanded ? 'Collapse' : 'Expand'} description for {event.title}"
 					>
 						<p class="text-muted text-sm {expanded ? '' : 'line-clamp-2'}">
 							{event.description}
@@ -117,7 +118,7 @@
 					class="inline-flex items-center text-sm text-accent font-medium hover:underline mb-4 focus:outline-none focus:ring-2 focus:ring-accent rounded"
 				>
 					<FileText class="w-4 h-4 mr-1" aria-hidden="true" />
-					View Slide Deck
+					View Slide Deck<span class="sr-only"> (opens in new window)</span>
 					<ExternalLink class="w-3 h-3 ml-1" aria-hidden="true" />
 				</a>
 			{/if}
@@ -145,6 +146,7 @@
 					{:else}
 						View Details
 					{/if}
+					<span class="sr-only"> (opens in new window)</span>
 					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 				</a>
 			{/if}

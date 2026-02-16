@@ -77,6 +77,7 @@
 				class="inline-flex items-center text-sm text-accent font-medium hover:underline mt-auto"
 			>
 				Watch on YouTube
+				<span class="sr-only"> (opens in new window)</span>
 				<ExternalLink class="w-4 h-4 ml-1" aria-hidden="true" />
 			</a>
 		</div>

@@ -69,6 +69,9 @@
 		</div>
 
 		{#if loading}
+			<div role="status" aria-live="polite">
+				<span class="sr-only">Loading anime list...</span>
+			</div>
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 				{#each [1, 2, 3] as _}
 					<div class="card animate-pulse">
@@ -116,15 +119,18 @@
 					{/each}
 				</div>
 
-				<select
-					bind:value={sortBy}
-					class="px-3 py-2 rounded-lg text-sm bg-surface border border-border text-text focus:outline-none focus:ring-2 focus:ring-accent"
-					aria-label="Sort by"
-				>
-					{#each sortOptions as opt}
-						<option value={opt.value}>{opt.label}</option>
-					{/each}
-				</select>
+				<div class="flex items-center gap-2">
+					<label for="sort-anime" class="text-sm font-medium text-muted">Sort by</label>
+					<select
+						id="sort-anime"
+						bind:value={sortBy}
+						class="px-3 py-2 rounded-lg text-sm bg-surface border border-border text-text focus:outline-none focus:ring-2 focus:ring-accent"
+					>
+						{#each sortOptions as opt}
+							<option value={opt.value}>{opt.label}</option>
+						{/each}
+					</select>
+				</div>
 			</div>
 
 			<!-- Anime Grid -->

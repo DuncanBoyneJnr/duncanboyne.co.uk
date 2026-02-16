@@ -24,7 +24,7 @@
 				{/if}
 
 				<span class="inline-flex items-center text-accent font-medium text-sm group-hover:underline">
-					Read more
+					Read more<span class="sr-only"> about {talk.title}</span>
 					<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" aria-hidden="true" />
 				</span>
 			</div>
