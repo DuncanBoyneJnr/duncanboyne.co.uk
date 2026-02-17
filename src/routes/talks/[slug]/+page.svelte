@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { ArrowLeft, Mic, BookOpen, Calendar, MapPin, ExternalLink, FileText, Globe, Linkedin } from 'lucide-svelte';
+	import { marked } from 'marked';
 	import { getTalkBySlug, getEventsByTalkSlug } from '$lib/supabase';
 	import type { Talk, Event } from '$lib/types';
 
@@ -119,10 +120,8 @@
 				</div>
 			{/if}
 
-			<div class="prose prose-lg max-w-none text-text prose-headings:text-text prose-a:text-accent">
-				<div class="whitespace-pre-wrap">
-					{talk.content}
-				</div>
+			<div class="talk-content">
+				{@html marked(talk.content)}
 			</div>
 
 			<!-- Upcoming Events -->
@@ -221,3 +220,70 @@
 		{/if}
 	</div>
 </article>
+
+<style>
+	.talk-content {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: var(--color-text);
+	}
+
+	.talk-content :global(a) {
+		color: var(--color-accent);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		font-weight: 500;
+	}
+
+	.talk-content :global(a:hover),
+	.talk-content :global(a:focus) {
+		color: var(--color-accent2);
+	}
+
+	.talk-content :global(h1),
+	.talk-content :global(h2),
+	.talk-content :global(h3) {
+		color: var(--color-text);
+		font-weight: 700;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.talk-content :global(h1) { font-size: 2rem; }
+	.talk-content :global(h2) { font-size: 1.5rem; }
+	.talk-content :global(h3) { font-size: 1.25rem; }
+
+	.talk-content :global(p) {
+		margin-bottom: 1.25rem;
+	}
+
+	.talk-content :global(strong) {
+		font-weight: 700;
+	}
+
+	.talk-content :global(ul),
+	.talk-content :global(ol) {
+		margin-bottom: 1.25rem;
+		padding-left: 1.5rem;
+	}
+
+	.talk-content :global(ul) { list-style-type: disc; }
+	.talk-content :global(ol) { list-style-type: decimal; }
+
+	.talk-content :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	.talk-content :global(hr) {
+		border-color: var(--color-border);
+		margin: 2rem 0;
+	}
+
+	.talk-content :global(blockquote) {
+		border-left: 4px solid var(--color-accent);
+		padding-left: 1rem;
+		color: var(--color-muted);
+		font-style: italic;
+		margin-bottom: 1.25rem;
+	}
+</style>
