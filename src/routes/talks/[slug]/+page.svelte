@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { ArrowLeft, Mic, Calendar, MapPin, ExternalLink, FileText } from 'lucide-svelte';
+	import { ArrowLeft, Mic, BookOpen, Calendar, MapPin, ExternalLink, FileText, Globe, Linkedin } from 'lucide-svelte';
 	import { getTalkBySlug, getEventsByTalkSlug } from '$lib/supabase';
 	import type { Talk, Event } from '$lib/types';
 
@@ -57,7 +57,7 @@
 			class="inline-flex items-center text-muted hover:text-accent mb-8"
 		>
 			<ArrowLeft class="w-4 h-4 mr-2" />
-			Back to Talks
+			Back to Speaking
 		</a>
 
 		{#if loading}
@@ -75,18 +75,42 @@
 				<p class="text-muted mb-8">{error || 'This talk could not be found.'}</p>
 				<a href="/talks" class="btn-primary">
 					<ArrowLeft class="w-4 h-4 mr-2" />
-					Back to Talks
+					Back to Speaking
 				</a>
 			</div>
 		{:else}
 			<header class="mb-8">
-				<div class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-info/15 text-info mb-4">
-					<Mic class="w-3.5 h-3.5" />
-					Talk
+				<div class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full {talk.type === 'workshop' ? 'bg-accent text-[#1F1F1F]' : 'bg-info/15 text-info'} mb-4">
+					{#if talk.type === 'workshop'}
+						<BookOpen class="w-3.5 h-3.5" />
+						Workshop
+					{:else}
+						<Mic class="w-3.5 h-3.5" />
+						Talk
+					{/if}
 				</div>
 				<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text mb-4">
 					{talk.title}
 				</h1>
+				{#if talk.co_host_name}
+					<div class="flex flex-wrap items-center gap-3 text-muted">
+						<span class="text-sm">Co-hosted with <strong class="text-text">{talk.co_host_name}</strong></span>
+						{#if talk.co_host_url}
+							<a href={talk.co_host_url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-accent hover:underline">
+								<Globe class="w-3.5 h-3.5" />
+								Website
+								<span class="sr-only"> (opens in new window)</span>
+							</a>
+						{/if}
+						{#if talk.co_host_linkedin}
+							<a href={talk.co_host_linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-accent hover:underline">
+								<Linkedin class="w-3.5 h-3.5" />
+								LinkedIn
+								<span class="sr-only"> (opens in new window)</span>
+							</a>
+						{/if}
+					</div>
+				{/if}
 			</header>
 
 			{#if talk.image}

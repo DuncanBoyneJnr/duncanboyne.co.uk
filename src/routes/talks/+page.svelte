@@ -21,16 +21,16 @@
 </script>
 
 <svelte:head>
-	<title>Talks - Duncan Boyne</title>
-	<meta name="description" content="Conference talks and presentations by Duncan Boyne on Power BI, data visualization, and business intelligence." />
+	<title>Speaking - Duncan Boyne</title>
+	<meta name="description" content="Conference talks, workshops, and presentations by Duncan Boyne on Power BI, data visualization, and business intelligence." />
 </svelte:head>
 
 <section class="py-16">
 	<div class="container-custom">
 		<div class="text-center mb-12">
-			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">Talks</h1>
+			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">Speaking</h1>
 			<p class="text-lg text-muted max-w-2xl mx-auto">
-				Conference talks and presentations on Power BI, data visualization, and dashboard design.
+				Conference talks, workshops, and presentations on Power BI, data visualization, and dashboard design.
 			</p>
 		</div>
 

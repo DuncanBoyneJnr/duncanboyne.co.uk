@@ -32,6 +32,10 @@ export interface Talk {
 	content: string;
 	excerpt: string | null;
 	image: string | null;
+	type: 'talk' | 'workshop';
+	co_host_name: string | null;
+	co_host_url: string | null;
+	co_host_linkedin: string | null;
 	created_at: string;
 	updated_at: string;
 }

@@ -30,7 +30,7 @@
 		{ href: '/blog', label: 'Blog', icon: FileText },
 		{ href: '/videos', label: 'Videos', icon: Video },
 		{ href: '/events', label: 'Events', icon: Calendar },
-		{ href: '/talks', label: 'Talks', icon: Mic },
+		{ href: '/talks', label: 'Speaking', icon: Mic },
 		{
 			label: 'Community',
 			icon: Users,
