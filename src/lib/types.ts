@@ -31,6 +31,7 @@ export interface Talk {
 	slug: string;
 	content: string;
 	excerpt: string | null;
+	image: string | null;
 	created_at: string;
 	updated_at: string;
 }

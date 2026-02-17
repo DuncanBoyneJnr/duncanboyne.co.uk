@@ -89,6 +89,12 @@
 				</h1>
 			</header>
 
+			{#if talk.image}
+				<div class="mb-8 rounded-xl overflow-hidden">
+					<img src={talk.image} alt={talk.title} class="w-full" />
+				</div>
+			{/if}
+
 			<div class="prose prose-lg max-w-none text-text prose-headings:text-text prose-a:text-accent">
 				<div class="whitespace-pre-wrap">
 					{talk.content}

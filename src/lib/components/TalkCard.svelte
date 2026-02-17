@@ -8,9 +8,15 @@
 <article class="group cursor-pointer">
 	<a href="/talks/{talk.slug}" class="block focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
 		<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
-			<div class="aspect-video bg-gradient-to-br from-info/20 to-accent/20 flex items-center justify-center">
-				<Mic class="w-12 h-12 text-info/40" aria-hidden="true" />
-			</div>
+			{#if talk.image}
+				<div class="aspect-video overflow-hidden">
+					<img src={talk.image} alt={talk.title} class="w-full h-full object-cover" />
+				</div>
+			{:else}
+				<div class="aspect-video bg-gradient-to-br from-info/20 to-accent/20 flex items-center justify-center">
+					<Mic class="w-12 h-12 text-info/40" aria-hidden="true" />
+				</div>
+			{/if}
 
 			<div class="p-5">
 				<h3 class="text-lg font-semibold text-text mb-2 group-hover:text-accent transition-colors line-clamp-2">
