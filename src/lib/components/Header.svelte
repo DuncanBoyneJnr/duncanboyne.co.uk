@@ -181,7 +181,7 @@
 					{#each navItems as item}
 						{#if isDropdown(item)}
 							<button
-								on:click={() => toggleDropdown(item.label.toLowerCase())}
+								on:click|stopPropagation={() => toggleDropdown(item.label.toLowerCase())}
 								class="flex items-center justify-between w-full px-3 py-2 rounded-lg text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent {isChildActive(item.children, currentPath)
 									? 'text-accent bg-accent/10'
 									: 'text-muted hover:text-text hover:bg-border'}"
