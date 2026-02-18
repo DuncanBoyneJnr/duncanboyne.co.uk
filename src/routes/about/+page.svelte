@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { Mic, Users, BarChart3, Sparkles, ExternalLink } from 'lucide-svelte';
+	import { Mic, Users, BarChart3, Sparkles, ExternalLink, Github, Linkedin, Youtube, ArrowRight } from 'lucide-svelte';
+
+	const socialLinks = [
+		{ href: 'https://github.com/DuncanBoyneJnr', icon: Github, label: 'GitHub' },
+		{ href: 'https://linkedin.com/in/duncanboyne', icon: Linkedin, label: 'LinkedIn' },
+		{ href: 'https://youtube.com/@PowerBIKindaGuy', icon: Youtube, label: 'YouTube' }
+	];
 
 	const skills = [
 		'Microsoft Power BI',
@@ -57,12 +63,25 @@
 		<!-- Bio Section -->
 		<div class="max-w-4xl mx-auto mb-16">
 			<div class="flex flex-col md:flex-row gap-12 items-start">
-				<!-- Profile Image -->
-				<div class="flex-shrink-0 mx-auto md:mx-0">
+				<!-- Profile Image + Social Links -->
+				<div class="flex-shrink-0 mx-auto md:mx-0 flex flex-col items-center gap-4">
 					<div class="w-48 h-48 rounded-2xl bg-gradient-to-br from-accent to-accent2 p-1">
 						<div class="w-full h-full rounded-2xl bg-surface flex items-center justify-center overflow-hidden">
 							<img src="/profile.jpg" alt="Duncan Boyne" class="w-full h-full object-cover" />
 						</div>
+					</div>
+					<div class="flex items-center gap-2">
+						{#each socialLinks as { href, icon: Icon, label }}
+							<a
+								{href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="p-2 rounded-lg text-muted hover:text-accent hover:bg-border transition-colors"
+								aria-label="{label} (opens in new window)"
+							>
+								<Icon class="w-5 h-5" />
+							</a>
+						{/each}
 					</div>
 				</div>
 
@@ -140,16 +159,22 @@
 					I speak at conferences, user groups, and community events about Power BI,
 					the Power Platform, and data storytelling. Check out my sessions and get in touch.
 				</p>
-				<a
-					href="https://sessionize.com/duncan-boyne"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="btn-primary"
-				>
-					View My Sessionize Profile
-					<span class="sr-only"> (opens in new window)</span>
-					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
-				</a>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/contact" class="btn-primary">
+						Get in Touch
+						<ArrowRight class="w-4 h-4 ml-2" aria-hidden="true" />
+					</a>
+					<a
+						href="https://sessionize.com/duncan-boyne"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn-secondary"
+					>
+						View My Sessionize Profile
+						<span class="sr-only"> (opens in new window)</span>
+						<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

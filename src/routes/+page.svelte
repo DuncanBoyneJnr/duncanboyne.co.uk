@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { ArrowRight, FileText, Calendar, Video } from 'lucide-svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import LandingChart from '$lib/components/LandingChart.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import EventCard from '$lib/components/EventCard.svelte';
 	import VideoCard from '$lib/components/VideoCard.svelte';
@@ -13,8 +14,11 @@
 	let videos: VideoType[] = [];
 	let loading = true;
 	let error: string | null = null;
+	let showLanding = true;
 
 	onMount(async () => {
+		document.body.style.overflow = 'hidden';
+
 		try {
 			const [postsData, eventsData, videosData] = await Promise.all([
 				getPosts(3),
@@ -31,12 +35,21 @@
 			loading = false;
 		}
 	});
+
+	function handleEnter() {
+		document.body.style.overflow = '';
+		showLanding = false;
+	}
 </script>
 
 <svelte:head>
 	<title>Duncan Boyne - Power BI Consultant</title>
 	<meta name="description" content="Duncan Boyne is a Power BI Consultant helping organizations transform data into actionable insights." />
 </svelte:head>
+
+{#if showLanding}
+	<LandingChart on:enter={handleEnter} />
+{/if}
 
 <Hero />
 
