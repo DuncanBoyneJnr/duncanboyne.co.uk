@@ -20,13 +20,13 @@
 	const BAR_WIDTH = 76;
 
 	const barDefs = [
-		{ label: ['Power BI', 'Consultant'], pct: 0.48, color: '#F5A623', isDad: false, x: 140 },
-		{ label: ['User Group', 'Leader'],   pct: 0.33, color: '#4A7FA5', isDad: false, x: 270 },
-		{ label: ['Summit', 'Founder'],      pct: 0.62, color: '#5B9BD5', isDad: false, x: 400 },
-		{ label: ['Chess', 'Nerd'],          pct: 0.38, color: '#3A4870', isDad: false, x: 530 },
-		{ label: ['Book', 'Worm'],           pct: 0.27, color: '#3A3558', isDad: false, x: 660 },
-		{ label: ['Writer'],                 pct: 0.70, color: '#F5A623', isDad: false, x: 790 },
-		{ label: ['Dad'],                    pct: 0.87, color: '#00D4F0', isDad: true,  x: 920 },
+		{ label: ['Power BI', 'Consultant'], pct: 0.48, color: '#F2C811', isDad: false, x: 140 },
+		{ label: ['User Group', 'Leader'],   pct: 0.33, color: '#5A4E38', isDad: false, x: 270 },
+		{ label: ['Summit', 'Founder'],      pct: 0.62, color: '#8B7040', isDad: false, x: 400 },
+		{ label: ['Chess', 'Nerd'],          pct: 0.38, color: '#3A3428', isDad: false, x: 530 },
+		{ label: ['Book', 'Worm'],           pct: 0.27, color: '#302C22', isDad: false, x: 660 },
+		{ label: ['Writer'],                 pct: 0.70, color: '#F2C811', isDad: false, x: 790 },
+		{ label: ['Dad'],                    pct: 0.87, color: '#E8E0CC', isDad: true,  x: 920 },
 	];
 
 	const bars = barDefs.map((b) => ({
@@ -168,10 +168,10 @@
 									y={bar.y - 14 - (bar.label.length - 1 - j) * 19}
 									text-anchor="middle"
 									fill={bar.isDad
-										? '#FFFFFF'
-										: bar.color === '#F5A623'
-										? '#F5A623'
-										: '#A0C4E8'}
+										? '#F5F5F5'
+										: bar.color === '#F2C811'
+										? '#F2C811'
+										: '#B3B3B3'}
 									font-size="13"
 									font-weight="600"
 									font-family="system-ui, -apple-system, sans-serif"
@@ -187,7 +187,7 @@
 					bind:this={pathEl}
 					d={linePath}
 					fill="none"
-					stroke="#00C8E8"
+					stroke="#F2C811"
 					stroke-width="2.4"
 					stroke-linecap="round"
 					filter="url(#landing-line-glow)"
@@ -204,7 +204,7 @@
 							cx={dot.x}
 							cy={dot.y}
 							r="4.5"
-							fill="#00C8E8"
+							fill="#F2C811"
 							filter="url(#landing-dot-glow)"
 							style="animation-delay: {i * 70}ms"
 						/>
@@ -240,7 +240,7 @@
 		position: fixed;
 		inset: 0;
 		z-index: 200;
-		background: #0B0E1C;
+		background: #121212;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -324,7 +324,7 @@
 
 	.drill-btn {
 		background: transparent;
-		border: 1.5px solid #00C8E8;
+		border: 1.5px solid #F2C811;
 		color: #ffffff;
 		font-size: clamp(0.75rem, 1.8vw, 0.95rem);
 		font-weight: 700;
@@ -337,12 +337,12 @@
 	}
 
 	.drill-btn:hover:not(:disabled) {
-		background: rgba(0, 200, 232, 0.08);
-		box-shadow: 0 0 28px rgba(0, 200, 232, 0.35), inset 0 0 12px rgba(0, 200, 232, 0.05);
+		background: rgba(242, 200, 17, 0.08);
+		box-shadow: 0 0 28px rgba(242, 200, 17, 0.35), inset 0 0 12px rgba(242, 200, 17, 0.05);
 	}
 
 	.drill-btn:active:not(:disabled) {
-		background: rgba(0, 200, 232, 0.15);
+		background: rgba(242, 200, 17, 0.15);
 	}
 
 	.drill-btn:disabled {
