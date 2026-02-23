@@ -67,7 +67,7 @@
 				<div class="flex-shrink-0 mx-auto md:mx-0 flex flex-col items-center gap-4">
 					<div class="w-48 h-48 rounded-2xl bg-gradient-to-br from-accent to-accent2 p-1">
 						<div class="w-full h-full rounded-2xl bg-surface flex items-center justify-center overflow-hidden">
-							<img src="/profile.jpg" alt="Duncan Boyne" class="w-full h-full object-cover" />
+							<img src="/profile.png" alt="Duncan Boyne" class="w-full h-full object-cover" />
 						</div>
 					</div>
 					<div class="flex items-center gap-2">
