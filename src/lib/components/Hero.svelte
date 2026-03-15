@@ -15,7 +15,7 @@
 			<div class="flex-shrink-0 md:-mt-3">
 				<div class="w-44 h-44 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-accent to-accent2 p-1">
 					<div class="w-full h-full rounded-full bg-surface overflow-hidden">
-						<img src="/profile.jpg" alt="Duncan Boyne" class="w-full h-full object-cover" />
+						<img src="/profile.jpg" alt="Duncan Boyne" class="w-full h-full object-cover object-top" />
 					</div>
 				</div>
 			</div>
