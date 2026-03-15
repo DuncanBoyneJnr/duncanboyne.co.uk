@@ -47,7 +47,25 @@
       "WebFetch(domain:www.metatft.com)",
       "WebSearch",
       "WebFetch(domain:www.amazon.com)",
-      "WebFetch(domain:www.thriftbooks.com)"
+      "WebFetch(domain:www.thriftbooks.com)",
+      "Bash(del blog-steal-my-website.md nul)",
+      "Bash(grep:*)",
+      "WebFetch(domain:pierrelouis.webflow.io)",
+      "WebFetch(domain:www.nimbble.nl)",
+      "mcp__ide__getDiagnostics",
+      "Bash(git checkout:*)",
+      "Bash(cmd /c \"cd /d C:\\\\Users\\\\dunca\\\\OneDrive\\\\Desktop\\\\ClaudeCode && npm run dev 2>&1\")",
+      "Bash(cmd /c \"cd /d C:\\\\Users\\\\dunca\\\\OneDrive\\\\Desktop\\\\ClaudeCode && npm run dev 2>&1 & timeout 10 & echo DONE\")",
+      "Bash(cmd /c \"npm --version && node --version\")",
+      "Bash(npm:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(magick:*)",
+      "Bash(ffmpeg:*)"
     ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
   }
 }

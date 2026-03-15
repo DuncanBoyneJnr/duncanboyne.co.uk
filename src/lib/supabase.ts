@@ -138,6 +138,42 @@ export async function getAnimeBySlug(slug: string) {
 	return data;
 }
 
+export async function getYearInNumbers() {
+	const year = new Date().getFullYear();
+	const yearStart = `${year}-01-01T00:00:00.000Z`;
+	const now = new Date().toISOString();
+
+	const [postsRes, eventsRes, talksRes, booksRes] = await Promise.all([
+		supabase
+			.from('posts')
+			.select('*', { count: 'exact', head: true })
+			.gte('published_at', yearStart),
+		supabase
+			.from('events')
+			.select('*', { count: 'exact', head: true })
+			.gte('event_date', yearStart)
+			.lt('event_date', now),
+		supabase
+			.from('events')
+			.select('*', { count: 'exact', head: true })
+			.gte('event_date', yearStart)
+			.lt('event_date', now)
+			.not('talk_slug', 'is', null),
+		supabase
+			.from('books')
+			.select('*', { count: 'exact', head: true })
+			.eq('status', 'completed')
+			.gte('finished_at', yearStart)
+	]);
+
+	return {
+		posts: postsRes.count ?? 0,
+		events: eventsRes.count ?? 0,
+		talks: talksRes.count ?? 0,
+		books: booksRes.count ?? 0
+	};
+}
+
 export async function getGamingAchievements() {
 	const { data, error } = await supabase
 		.from('gaming_achievements')
