@@ -14,10 +14,10 @@
 	let videos: VideoType[] = [];
 	let loading = true;
 	let error: string | null = null;
-	let showLanding = true;
+	let showLanding = !sessionStorage.getItem('hasSeenLanding');
 
 	onMount(async () => {
-		document.body.style.overflow = 'hidden';
+		if (showLanding) document.body.style.overflow = 'hidden';
 
 		try {
 			const [postsData, eventsData, videosData] = await Promise.all([
@@ -38,6 +38,7 @@
 
 	function handleEnter() {
 		document.body.style.overflow = '';
+		sessionStorage.setItem('hasSeenLanding', 'true');
 		showLanding = false;
 	}
 </script>
