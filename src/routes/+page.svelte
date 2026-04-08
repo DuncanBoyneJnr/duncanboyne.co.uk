@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ArrowRight, FileText, Calendar, Video } from 'lucide-svelte';
+	import { ArrowRight, FileText, Calendar, Video, BarChart3, Zap, Database } from 'lucide-svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import LandingChart from '$lib/components/LandingChart.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
@@ -8,6 +8,31 @@
 	import VideoCard from '$lib/components/VideoCard.svelte';
 	import { getPosts, getEvents, getVideos } from '$lib/supabase';
 	import type { Post, Event, Video as VideoType } from '$lib/types';
+
+	const whatIDo = [
+		{ icon: BarChart3, title: 'Power BI & Data Visualisation', desc: 'Reports and dashboards people actually use — built around real decisions, not just data.' },
+		{ icon: Zap,       title: 'Automation',                    desc: 'Killing the manual processes that eat your team\'s time and introduce errors.' },
+		{ icon: Database,  title: 'AI Readiness',                  desc: 'Getting your data foundations right before AI gets involved — the work that makes it all possible.' }
+	];
+
+	// Scroll-triggered scale-in for individual cards
+	function revealCard(node: HTMLElement) {
+		node.style.opacity = '0';
+		node.style.transform = 'scale(1.05) translateY(16px)';
+		const observer = new IntersectionObserver(([entry]) => {
+			if (entry.isIntersecting) {
+				node.style.transition = 'opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)';
+				node.style.opacity = '1';
+				node.style.transform = 'scale(1) translateY(0)';
+				observer.disconnect();
+			}
+		}, { threshold: 0.15 });
+		observer.observe(node);
+		return { destroy() { observer.disconnect(); } };
+	}
+
+	// Dummy action so `use:revealSection` compiles (section itself doesn't need special treatment)
+	function revealSection(_node: HTMLElement) {}
 
 	let posts: Post[] = [];
 	let events: Event[] = [];
@@ -53,6 +78,35 @@
 {/if}
 
 <Hero />
+
+<!-- What I Do -->
+<section class="py-16 bg-bg" use:revealSection>
+	<div class="container-custom">
+		<div class="flex items-center justify-between mb-8">
+			<h2 class="text-2xl font-bold text-text">What I Do</h2>
+			<a href="/services" class="inline-flex items-center text-accent font-medium hover:underline group">
+				Work With Me
+				<ArrowRight class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+			</a>
+		</div>
+		<div class="grid md:grid-cols-3 gap-6">
+			{#each whatIDo as item, i}
+				<a
+					href="/services"
+					class="card p-6 block no-underline scale-card hover:border-accent/50"
+					style="transition-delay: {i * 100}ms"
+					use:revealCard
+				>
+					<div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+						<svelte:component this={item.icon} class="w-6 h-6 text-accent" aria-hidden="true" />
+					</div>
+					<h3 class="font-semibold text-text mb-2">{item.title}</h3>
+					<p class="text-sm text-muted">{item.desc}</p>
+				</a>
+			{/each}
+		</div>
+	</div>
+</section>
 
 <!-- Latest Blog Posts -->
 <section class="py-16 bg-surface">

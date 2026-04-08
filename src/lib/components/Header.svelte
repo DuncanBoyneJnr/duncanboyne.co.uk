@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users, Database, BookOpen, Tv, Gamepad2, ChevronDown } from 'lucide-svelte';
+	import { Menu, X, Home, FileText, Video, Calendar, Mic, User, Mail, Sparkles, Users, Database, BookOpen, Tv, Gamepad2, ChevronDown, BarChart3 } from 'lucide-svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let mobileMenuOpen = false;
@@ -30,6 +30,7 @@
 	// Consolidated from 8 top-level items to 6 (#fix-4 #fix-5)
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Home', icon: Home },
+		{ href: '/services', label: 'Services', icon: BarChart3 },
 		{
 			label: 'Content',
 			icon: FileText,
@@ -51,7 +52,6 @@
 			icon: Users,
 			children: [
 				{ href: '/summit', label: 'EoEPPS', icon: Sparkles },
-				{ href: '/mcr-data-hive', label: 'DataHive', icon: Database },
 				{ href: '/user-group', label: 'NPPUG', icon: Users }
 			]
 		},

@@ -5,7 +5,6 @@
 	import type { Talk } from '$lib/types';
 
 	let talks: Talk[] = [];
-	let workshops: Talk[] = [];
 	let loading = true;
 	let error: string | null = null;
 
@@ -13,7 +12,6 @@
 		try {
 			const all = (await getTalks()) || [];
 			talks = all.filter(t => t.type === 'talk');
-			workshops = all.filter(t => t.type === 'workshop');
 		} catch (e) {
 			error = 'Failed to load talks. Please try again later.';
 			console.error(e);
@@ -51,35 +49,17 @@
 			</div>
 		{:else if error}
 			<p class="text-center text-muted py-12">{error}</p>
+		{:else if talks.length === 0}
+			<div class="text-center py-12">
+				<p class="text-muted mb-4">No talks yet.</p>
+				<p class="text-muted/70">Check back soon for new content!</p>
+			</div>
 		{:else}
-			{#if talks.length > 0}
-				<div class="mb-16">
-					<h2 class="text-2xl font-bold text-text mb-8">Talks</h2>
-					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{#each talks as talk}
-							<TalkCard {talk} />
-						{/each}
-					</div>
-				</div>
-			{/if}
-
-			{#if workshops.length > 0}
-				<div>
-					<h2 class="text-2xl font-bold text-text mb-8">Workshops</h2>
-					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{#each workshops as talk}
-							<TalkCard {talk} />
-						{/each}
-					</div>
-				</div>
-			{/if}
-
-			{#if talks.length === 0 && workshops.length === 0}
-				<div class="text-center py-12">
-					<p class="text-muted mb-4">No talks yet.</p>
-					<p class="text-muted/70">Check back soon for new content!</p>
-				</div>
-			{/if}
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{#each talks as talk}
+					<TalkCard {talk} />
+				{/each}
+			</div>
 		{/if}
 	</div>
 </section>

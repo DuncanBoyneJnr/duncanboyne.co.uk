@@ -15,16 +15,21 @@
 		'Microsoft Power Automate',
 		'Dataverse',
 		'Dynamics 365',
+		'Epicor',
+		'InFor',
+		'Sage',
 		'Data Modeling',
-		'ERP Integration (Sage 200)',
-		'Dashboard Design'
+		'Financial Reporting',
+		'Manufacturing KPIs',
+		'Dashboard Design',
+		'AI Readiness'
 	];
 
 	const highlights = [
 		{
 			icon: BarChart3,
 			title: 'Power BI Consultant',
-			description: 'Currently at CPiO, turning complex data into clear, actionable insights'
+			description: 'Turning complex data into clear, actionable insights across financial services and manufacturing'
 		},
 		{
 			icon: Mic,
@@ -164,13 +169,16 @@
 						Get in Touch
 						<ArrowRight class="w-4 h-4 ml-2" aria-hidden="true" />
 					</a>
+					<a href="/services" class="btn-secondary">
+						Work With Me
+					</a>
 					<a
 						href="https://sessionize.com/duncan-boyne"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="btn-secondary"
 					>
-						View My Sessionize Profile
+						Sessionize Profile
 						<span class="sr-only"> (opens in new window)</span>
 						<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
 					</a>
