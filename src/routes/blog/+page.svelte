@@ -82,19 +82,22 @@
 			<p class="text-center text-muted py-12">{error}</p>
 		{:else}
 			<!-- Filters -->
-			<div class="flex flex-wrap gap-2 mb-8" role="tablist" aria-label="Filter by category">
-				{#each filters as filter}
-					<button
-						on:click={() => activeFilter = filter.value}
-						class="px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent {activeFilter === filter.value
-							? 'bg-accent text-bg'
-							: 'bg-surface border border-border text-muted hover:text-text hover:border-accent/50'}"
-						role="tab"
-						aria-selected={activeFilter === filter.value}
-					>
-						{filter.label}
-					</button>
-				{/each}
+			<div class="flex flex-col gap-3 mb-8 pb-6 border-b border-border">
+				<p class="text-xs font-semibold text-muted uppercase tracking-wider">Filter by category</p>
+				<div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
+					{#each filters as filter}
+						<button
+							on:click={() => activeFilter = filter.value}
+							class="px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent {activeFilter === filter.value
+								? 'bg-accent text-bg'
+								: 'bg-surface border border-border text-muted hover:text-text hover:border-accent/50'}"
+							role="tab"
+							aria-selected={activeFilter === filter.value}
+						>
+							{filter.label}
+						</button>
+					{/each}
+				</div>
 			</div>
 
 			{#if filteredPosts.length === 0}

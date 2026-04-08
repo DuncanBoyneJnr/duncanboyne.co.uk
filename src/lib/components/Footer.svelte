@@ -21,17 +21,17 @@
 			</div>
 
 			<!-- Social Links -->
-			<div class="flex items-center space-x-4">
+			<div class="flex items-center gap-1 flex-wrap justify-center">
 				{#each socialLinks as { href, icon: Icon, label }}
 					<a
 						{href}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="p-2 rounded-lg text-muted hover:text-accent hover:bg-border transition-colors"
-						aria-label={label}
+						class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-muted hover:text-accent hover:bg-border transition-colors text-sm"
+						aria-label="{label} (opens in new window)"
 					>
-						<Icon class="w-5 h-5" />
-						<span class="sr-only"> (opens in new window)</span>
+						<Icon class="w-4 h-4" aria-hidden="true" />
+						<span class="hidden sm:inline">{label}</span>
 					</a>
 				{/each}
 			</div>

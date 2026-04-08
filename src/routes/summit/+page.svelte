@@ -51,9 +51,31 @@
 			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">
 				East of England Power Platform Summit
 			</h1>
-			<p class="text-xl text-muted">
+			<p class="text-xl text-muted mb-8">
 				A groundbreaking community-focused event bringing together Power Platform enthusiasts, professionals, and newcomers alike.
 			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a
+					href="https://www.eoepps.co.uk"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-primary"
+				>
+					Visit Official Website
+					<span class="sr-only"> (opens in new window)</span>
+					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
+				</a>
+				<a
+					href="https://www.linkedin.com/company/eoepps/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-secondary"
+				>
+					<Linkedin class="w-4 h-4 mr-2" aria-hidden="true" />
+					Follow on LinkedIn
+					<span class="sr-only"> (opens in new window)</span>
+				</a>
+			</div>
 		</div>
 
 		<!-- Event Highlights -->

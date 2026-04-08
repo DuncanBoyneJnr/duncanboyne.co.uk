@@ -100,8 +100,11 @@
 				xmlns="http://www.w3.org/2000/svg"
 				class="chart-svg"
 				role="img"
-				aria-label="Bar chart showing Duncan Boyne's multiple roles across career milestones"
+				aria-labelledby="landing-chart-title"
+				aria-describedby="landing-chart-desc"
 			>
+				<title id="landing-chart-title">Duncan Boyne's Roles</title>
+				<desc id="landing-chart-desc">Animated bar and line chart showing Duncan Boyne's multiple roles: Power BI Consultant, User Group Leader, Summit Founder, Chess Nerd, Book Worm, Writer, and Dad — with Dad being the highest bar.</desc>
 				<defs>
 					{#each bars as bar, i}
 						<linearGradient id="landing-grad-{i}" x1="0" y1="0" x2="0" y2="1">
@@ -231,6 +234,15 @@
 					DRILL THROUGH
 				</button>
 			{/if}
+
+			<button
+				class="skip-btn"
+				on:click={drillThrough}
+				disabled={exiting}
+				aria-label="Skip intro and go to main site"
+			>
+				Skip intro →
+			</button>
 		</div>
 	</div>
 {/if}
@@ -348,5 +360,31 @@
 	.drill-btn:disabled {
 		cursor: default;
 		opacity: 0.7;
+	}
+
+	.skip-btn {
+		position: absolute;
+		top: 1rem;
+		right: 1.25rem;
+		background: transparent;
+		border: none;
+		color: rgba(255, 255, 255, 0.45);
+		font-size: 0.8rem;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		cursor: pointer;
+		font-family: system-ui, -apple-system, sans-serif;
+		padding: 0.5rem 0.75rem;
+		border-radius: 4px;
+		transition: color 0.2s;
+	}
+
+	.skip-btn:hover:not(:disabled) {
+		color: rgba(255, 255, 255, 0.75);
+	}
+
+	.skip-btn:focus-visible {
+		outline: 2px solid #D4A900;
+		outline-offset: 2px;
 	}
 </style>

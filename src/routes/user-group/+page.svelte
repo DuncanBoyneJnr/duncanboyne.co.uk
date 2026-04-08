@@ -54,9 +54,41 @@
 			<h1 class="text-4xl md:text-5xl font-bold text-text mb-4">
 				Norfolk Power Platform User Group
 			</h1>
-			<p class="text-xl text-muted">
+			<p class="text-xl text-muted mb-8">
 				Bringing together Power Platform enthusiasts in Norwich and the surrounding area for learning, networking, and community.
 			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+				<a
+					href="https://www.nppug.co.uk/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-primary"
+				>
+					Visit nppug.co.uk
+					<span class="sr-only"> (opens in new window)</span>
+					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
+				</a>
+				<a
+					href="https://www.linkedin.com/company/norfolk-power-platform-user-group/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-secondary"
+				>
+					<Linkedin class="w-4 h-4 mr-2" aria-hidden="true" />
+					Follow on LinkedIn
+					<span class="sr-only"> (opens in new window)</span>
+				</a>
+				<a
+					href="https://sessionize.com/norfolk-power-platform-user-group-IP/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-secondary"
+				>
+					<Mic class="w-4 h-4 mr-2" aria-hidden="true" />
+					Submit a Session
+					<span class="sr-only"> (opens in new window)</span>
+				</a>
+			</div>
 		</div>
 
 		<!-- Meeting Info -->

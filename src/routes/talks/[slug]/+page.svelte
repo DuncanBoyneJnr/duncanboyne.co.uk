@@ -53,6 +53,19 @@
 
 <article class="py-16">
 	<div class="container-custom max-w-4xl">
+		<!-- Breadcrumbs -->
+		<nav aria-label="Breadcrumb" class="mb-6">
+			<ol class="flex items-center gap-2 text-sm text-muted flex-wrap">
+				<li><a href="/" class="hover:text-accent transition-colors">Home</a></li>
+				<li aria-hidden="true" class="text-border">›</li>
+				<li><a href="/talks" class="hover:text-accent transition-colors">Speaking</a></li>
+				{#if talk}
+					<li aria-hidden="true" class="text-border">›</li>
+					<li class="text-text truncate max-w-[200px]" aria-current="page">{talk.title}</li>
+				{/if}
+			</ol>
+		</nav>
+
 		<a
 			href="/talks"
 			class="inline-flex items-center text-muted hover:text-accent mb-8"
@@ -226,6 +239,7 @@
 		font-size: 1.125rem;
 		line-height: 1.8;
 		color: var(--color-text);
+		max-width: 65ch;
 	}
 
 	.talk-content :global(a) {

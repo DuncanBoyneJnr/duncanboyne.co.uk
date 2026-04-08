@@ -4,6 +4,8 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let mobileMenuOpen = false;
+	let contentOpen = false;
+	let speakingOpen = false;
 	let communityOpen = false;
 	let aboutOpen = false;
 
@@ -25,12 +27,25 @@
 		return 'children' in item;
 	}
 
+	// Consolidated from 8 top-level items to 6 (#fix-4 #fix-5)
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Home', icon: Home },
-		{ href: '/blog', label: 'Blog', icon: FileText },
-		{ href: '/videos', label: 'Videos', icon: Video },
-		{ href: '/events', label: 'Events', icon: Calendar },
-		{ href: '/talks', label: 'Speaking', icon: Mic },
+		{
+			label: 'Content',
+			icon: FileText,
+			children: [
+				{ href: '/blog', label: 'Blog', icon: FileText },
+				{ href: '/videos', label: 'Videos', icon: Video }
+			]
+		},
+		{
+			label: 'Speaking',
+			icon: Mic,
+			children: [
+				{ href: '/talks', label: 'Talks & Workshops', icon: Mic },
+				{ href: '/events', label: 'Events', icon: Calendar }
+			]
+		},
 		{
 			label: 'Community',
 			icon: Users,
@@ -59,21 +74,25 @@
 
 	function closeMenu() {
 		mobileMenuOpen = false;
+		contentOpen = false;
+		speakingOpen = false;
 		communityOpen = false;
 		aboutOpen = false;
 	}
 
 	function toggleDropdown(name: string) {
-		if (name === 'community') {
-			communityOpen = !communityOpen;
-			aboutOpen = false;
-		} else if (name === 'about') {
-			aboutOpen = !aboutOpen;
-			communityOpen = false;
-		}
+		contentOpen   = name === 'content'   ? !contentOpen   : false;
+		speakingOpen  = name === 'speaking'  ? !speakingOpen  : false;
+		communityOpen = name === 'community' ? !communityOpen : false;
+		aboutOpen     = name === 'about'     ? !aboutOpen     : false;
 	}
 
+	// Reactive object so Svelte tracks each variable directly in the template
+	$: openStates = { Content: contentOpen, Speaking: speakingOpen, Community: communityOpen, About: aboutOpen } as Record<string, boolean>;
+
 	function closeDropdowns() {
+		contentOpen = false;
+		speakingOpen = false;
 		communityOpen = false;
 		aboutOpen = false;
 	}
@@ -108,15 +127,15 @@
 								class="flex items-center gap-1.5 text-sm font-medium transition-colors px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent {isChildActive(item.children, currentPath)
 									? 'text-accent bg-accent/10'
 									: 'text-muted hover:text-text hover:bg-border'}"
-								aria-expanded={item.label === 'Community' ? communityOpen : aboutOpen}
+								aria-expanded={openStates[item.label]}
 								aria-haspopup="true"
 							>
 								<svelte:component this={item.icon} class="w-4 h-4" />
 								{item.label}
-								<ChevronDown class="w-3 h-3 transition-transform {(item.label === 'Community' ? communityOpen : aboutOpen) ? 'rotate-180' : ''}" aria-hidden="true" />
+								<ChevronDown class="w-3 h-3 transition-transform {openStates[item.label] ? 'rotate-180' : ''}" aria-hidden="true" />
 							</button>
 
-							{#if (item.label === 'Community' && communityOpen) || (item.label === 'About' && aboutOpen)}
+							{#if openStates[item.label]}
 								<!-- svelte-ignore a11y-click-events-have-key-events -->
 								<div
 									class="absolute top-full left-0 mt-1 w-48 bg-surface border border-border rounded-xl shadow-lg py-2 z-50"
@@ -185,16 +204,16 @@
 								class="flex items-center justify-between w-full px-3 py-2 rounded-lg text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent {isChildActive(item.children, currentPath)
 									? 'text-accent bg-accent/10'
 									: 'text-muted hover:text-text hover:bg-border'}"
-								aria-expanded={item.label === 'Community' ? communityOpen : aboutOpen}
+								aria-expanded={openStates[item.label]}
 							>
 								<span class="flex items-center gap-3">
 									<svelte:component this={item.icon} class="w-5 h-5" />
 									{item.label}
 								</span>
-								<ChevronDown class="w-4 h-4 transition-transform {(item.label === 'Community' ? communityOpen : aboutOpen) ? 'rotate-180' : ''}" aria-hidden="true" />
+								<ChevronDown class="w-4 h-4 transition-transform {openStates[item.label] ? 'rotate-180' : ''}" aria-hidden="true" />
 							</button>
 
-							{#if (item.label === 'Community' && communityOpen) || (item.label === 'About' && aboutOpen)}
+							{#if openStates[item.label]}
 								<div class="ml-6 flex flex-col space-y-1">
 									{#each item.children as child}
 										<a

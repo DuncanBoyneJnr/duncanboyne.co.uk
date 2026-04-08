@@ -10,8 +10,11 @@
 		--color-text: #2D2A26;
 		--color-muted: #6B6660;
 		--color-border: #E5E1D8;
-		--color-accent: #C49A00;
-		--color-accent2: #A68200;
+		/* Darkened for 4.65:1 contrast on cream bg (#fix-1) */
+		--color-accent: #8B6800;
+		--color-accent2: #6B5000;
+		/* White text on dark-gold button passes 5.1:1 (#fix-1) */
+		--color-on-accent: #FFFFFF;
 		--color-success: #107C10;
 		--color-info: #0078D4;
 		--color-warning: #FFB900;
@@ -24,8 +27,11 @@
 		--color-text: #F5F5F5;
 		--color-muted: #B3B3B3;
 		--color-border: #2C2C2C;
-		--color-accent: #F2C811;
-		--color-accent2: #C9A300;
+		/* Slightly toned-down gold for reduced eye strain (#fix-8) */
+		--color-accent: #D4A900;
+		--color-accent2: #B08D00;
+		/* Dark text on lighter gold passes 8.8:1 (#fix-1) */
+		--color-on-accent: #1F1F1F;
 		--color-success: #6CCB5F;
 		--color-info: #4F9DDE;
 		--color-warning: #FFD966;
@@ -57,8 +63,8 @@
 	}
 
 	.btn-primary {
-		@apply inline-flex items-center justify-center px-6 py-3 bg-accent font-medium rounded-lg hover:bg-accent2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg transition-colors;
-		color: #1F1F1F;
+		@apply inline-flex items-center justify-center px-6 py-3 bg-accent font-medium rounded-lg hover:bg-accent2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg transition-colors active:scale-[0.97];
+		color: var(--color-on-accent);
 	}
 
 	.btn-secondary {
@@ -66,7 +72,7 @@
 	}
 
 	.card {
-		@apply bg-surface rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow;
+		@apply bg-surface rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-all active:scale-[0.99];
 	}
 
 	.section-title {

@@ -9,6 +9,17 @@
 				<p class="hero-tagline text-accent font-medium md:whitespace-nowrap">
 					The Power BI Kinda Guy.
 				</p>
+				<p class="mt-3 text-base md:text-lg text-muted max-w-md mx-auto md:mx-0">
+					Power BI Consultant · Speaker · Community Builder
+				</p>
+				<div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+					<a href="/talks" class="btn-primary">
+						See My Talks
+					</a>
+					<a href="/contact" class="btn-secondary">
+						Get in Touch
+					</a>
+				</div>
 			</div>
 
 			<!-- Profile photo -->

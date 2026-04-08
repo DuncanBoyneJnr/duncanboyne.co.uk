@@ -65,9 +65,31 @@
 			<p class="text-xl text-muted mb-2">
 				Learn. Collaborate. Elevate.
 			</p>
-			<p class="text-lg text-muted">
+			<p class="text-lg text-muted mb-8">
 				A volunteer-led community day uniting professionals passionate about Microsoft's Data & AI ecosystem.
 			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a
+					href="https://www.manchesterdatahive.co.uk"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-primary"
+				>
+					Visit Official Website
+					<span class="sr-only"> (opens in new window)</span>
+					<ExternalLink class="w-4 h-4 ml-2" aria-hidden="true" />
+				</a>
+				<a
+					href="https://www.linkedin.com/company/manchester-data-hive/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-secondary"
+				>
+					<Linkedin class="w-4 h-4 mr-2" aria-hidden="true" />
+					Follow on LinkedIn
+					<span class="sr-only"> (opens in new window)</span>
+				</a>
+			</div>
 		</div>
 
 		<!-- Event Highlights -->

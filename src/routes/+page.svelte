@@ -14,7 +14,7 @@
 	let videos: VideoType[] = [];
 	let loading = true;
 	let error: string | null = null;
-	let showLanding = !sessionStorage.getItem('hasSeenLanding');
+	let showLanding = !localStorage.getItem('hasSeenLanding');
 
 	onMount(async () => {
 		if (showLanding) document.body.style.overflow = 'hidden';
@@ -38,7 +38,7 @@
 
 	function handleEnter() {
 		document.body.style.overflow = '';
-		sessionStorage.setItem('hasSeenLanding', 'true');
+		localStorage.setItem('hasSeenLanding', 'true');
 		showLanding = false;
 	}
 </script>
@@ -71,14 +71,15 @@
 		</div>
 
 		{#if loading}
-			<div class="grid md:grid-cols-3 gap-6">
+			<div role="status" aria-label="Loading blog posts" class="grid md:grid-cols-3 gap-6">
 				{#each [1, 2, 3] as _}
 					<div class="card animate-pulse">
-						<div class="aspect-video bg-border" />
-						<div class="p-5 space-y-3">
+						<div class="aspect-video bg-border" style="min-height: 180px" />
+						<div class="p-5 space-y-3" style="min-height: 120px">
 							<div class="h-4 bg-border rounded w-1/3" />
 							<div class="h-5 bg-border rounded" />
 							<div class="h-4 bg-border rounded w-2/3" />
+							<div class="h-4 bg-border rounded w-1/2" />
 						</div>
 					</div>
 				{/each}
@@ -117,13 +118,14 @@
 		</div>
 
 		{#if loading}
-			<div class="grid md:grid-cols-2 gap-6">
+			<div role="status" aria-label="Loading events" class="grid md:grid-cols-2 gap-6">
 				{#each [1, 2] as _}
-					<div class="card animate-pulse p-5 space-y-3">
+					<div class="card animate-pulse p-5 space-y-3" style="min-height: 140px">
 						<div class="h-6 bg-border rounded w-1/4" />
 						<div class="h-5 bg-border rounded w-3/4" />
 						<div class="h-4 bg-border rounded" />
 						<div class="h-4 bg-border rounded w-1/2" />
+						<div class="h-4 bg-border rounded w-2/3" />
 					</div>
 				{/each}
 			</div>
@@ -160,13 +162,14 @@
 		</div>
 
 		{#if loading}
-			<div class="grid md:grid-cols-3 gap-6">
+			<div role="status" aria-label="Loading videos" class="grid md:grid-cols-3 gap-6">
 				{#each [1, 2, 3] as _}
 					<div class="card animate-pulse">
-						<div class="aspect-video bg-border" />
-						<div class="p-5 space-y-3">
+						<div class="aspect-video bg-border" style="min-height: 180px" />
+						<div class="p-5 space-y-3" style="min-height: 80px">
 							<div class="h-4 bg-border rounded w-1/3" />
 							<div class="h-5 bg-border rounded" />
+							<div class="h-4 bg-border rounded w-2/3" />
 						</div>
 					</div>
 				{/each}
