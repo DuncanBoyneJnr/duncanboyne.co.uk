@@ -7,9 +7,9 @@
 	$: isWorkshop = talk.type === 'workshop';
 </script>
 
-<article class="group cursor-pointer">
-	<a href="/talks/{talk.slug}" class="block focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
-		<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1">
+<article class="group cursor-pointer h-full">
+	<a href="/talks/{talk.slug}" class="block h-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg rounded-xl">
+		<div class="card overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:border-accent/50 group-hover:-translate-y-1 h-full flex flex-col">
 			{#if talk.image}
 				<div class="aspect-video overflow-hidden relative">
 					<img src={talk.image} alt={talk.title} class="w-full h-full object-cover" />
@@ -44,7 +44,7 @@
 				</div>
 			{/if}
 
-			<div class="p-5">
+			<div class="p-5 flex flex-col flex-1">
 				<h3 class="text-lg font-semibold text-text mb-2 group-hover:text-accent transition-colors line-clamp-2">
 					{talk.title}
 				</h3>
