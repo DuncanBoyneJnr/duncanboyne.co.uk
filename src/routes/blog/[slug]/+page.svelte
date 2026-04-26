@@ -4,6 +4,11 @@
 	import { ArrowLeft, Calendar, Clock } from 'lucide-svelte';
 	import { getPostBySlug } from '$lib/supabase';
 	import { marked } from 'marked';
+	import Carousel from '$lib/components/Carousel.svelte';
+
+	const carousels: Record<string, string[]> = {
+		'ai-adoption-power-bi': Array.from({ length: 8 }, (_, i) => `/carousel-ai-power-bi/slide-${i + 1}.png`)
+	};
 	import type { Post } from '$lib/types';
 
 	const renderer = new marked.Renderer();
@@ -128,6 +133,12 @@
 						alt={post.title}
 						class="w-full rounded-xl shadow-lg"
 					/>
+				</div>
+			{/if}
+
+			{#if carousels[post.slug]}
+				<div class="mb-8">
+					<Carousel images={carousels[post.slug]} alt={post.title} />
 				</div>
 			{/if}
 
