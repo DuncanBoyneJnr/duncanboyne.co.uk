@@ -17,21 +17,10 @@
 	function goTo(index: number) {
 		current = index;
 	}
-
-	function handleKey(e: KeyboardEvent) {
-		if (e.key === 'ArrowLeft') prev();
-		if (e.key === 'ArrowRight') next();
-	}
 </script>
 
-<div
-	class="carousel relative w-full rounded-xl overflow-hidden select-none"
-	role="region"
-	aria-label="Image carousel"
-	tabindex="0"
-	on:keydown={handleKey}
->
-	<div class="aspect-[16/9] bg-black">
+<div class="carousel relative w-full rounded-xl overflow-hidden select-none" role="region" aria-label="Image carousel">
+	<div class="aspect-[4/5] bg-black">
 		{#each images as src, i}
 			<img
 				{src}
@@ -47,6 +36,7 @@
 		<button
 			class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white rounded-full p-2 transition-colors"
 			on:click={prev}
+			on:keydown={(e) => e.key === 'ArrowLeft' && prev()}
 			aria-label="Previous slide"
 		>
 			<ChevronLeft class="w-5 h-5" />
@@ -55,6 +45,7 @@
 		<button
 			class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white rounded-full p-2 transition-colors"
 			on:click={next}
+			on:keydown={(e) => e.key === 'ArrowRight' && next()}
 			aria-label="Next slide"
 		>
 			<ChevronRight class="w-5 h-5" />
@@ -74,6 +65,6 @@
 
 <style>
 	.carousel { position: relative; }
-	.carousel .aspect-\[16\/9\] { position: relative; }
+	.carousel .aspect-\[4\/5\] { position: relative; }
 	img { position: absolute; }
 </style>
